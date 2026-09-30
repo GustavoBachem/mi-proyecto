@@ -45,10 +45,129 @@
     if (DATA) return DATA;
     const res = await fetch("data/products.json", { cache: "no-cache" });
     DATA = await res.json();
+    if (CFG.hojaProductosCSV && CFG.hojaColoresCSV) {
+      try {
+        const productos = await loadFromSheet(DATA);
+        if (productos.length) DATA.productos = productos;
+      } catch (e) {
+        console.warn("No se pudo leer la planilla; se usa data/products.json", e);
+      }
+    }
     DATA.modeloPorId = Object.fromEntries(DATA.modelos.map((m) => [m.id, m]));
     DATA.categoriaPorId = Object.fromEntries(DATA.categorias.map((c) => [c.id, c]));
     DATA.productoPorId = Object.fromEntries(DATA.productos.map((p) => [p.id, p]));
     return DATA;
+  }
+
+  // ---------- catálogo desde Google Sheets ----------
+  // La planilla tiene dos pestañas publicadas como CSV: "productos" (una fila por
+  // producto) y "colores" (una fila por color de cada producto). Ver docs/PLANILLA.md.
+  function parseCSV(text) {
+    const rows = [];
+    let row = [], field = "", quoted = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (quoted) {
+        if (ch === '"' && text[i + 1] === '"') { field += '"'; i++; }
+        else if (ch === '"') quoted = false;
+        else field += ch;
+      } else if (ch === '"') quoted = true;
+      else if (ch === ",") { row.push(field); field = ""; }
+      else if (ch === "\n" || ch === "\r") {
+        if (ch === "\r" && text[i + 1] === "\n") i++;
+        row.push(field); rows.push(row); row = []; field = "";
+      } else field += ch;
+    }
+    if (field || row.length) { row.push(field); rows.push(row); }
+    const head = (rows.shift() || []).map((h) => norm(h).replace(/\s+/g, "_"));
+    return rows
+      .filter((r) => r.some((c) => c.trim()))
+      .map((r) => Object.fromEntries(head.map((h, i) => [h, (r[i] || "").trim()])));
+  }
+
+  function norm(s) {
+    return String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
+  }
+
+  const siNo = (v) => ["si", "sí", "x", "1", "true", "yes"].includes(norm(v));
+  const numero = (v) => +String(v || "").replace(/[^\d]/g, "") || 0;
+
+  // Acepta links de Google Drive ("Compartir → cualquier persona con el enlace").
+  function urlImagen(v) {
+    if (!v) return "";
+    const m = v.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=view&)?id=)([\w-]+)/);
+    return m ? `https://lh3.googleusercontent.com/d/${m[1]}=w1200` : v;
+  }
+
+  const COLORES_COMUNES = {
+    negro: "#1d1d1f", blanco: "#f5f5f7", gris: "#8e8e93", plata: "#c9ccd1", dorado: "#d4b483",
+    rojo: "#c8102e", rosa: "#f4b6c2", fucsia: "#d6336c", lila: "#b9a7d6", violeta: "#7a4fbf",
+    azul: "#2b5d8a", celeste: "#8ec5e8", verde: "#6b8f5e", amarillo: "#f2d04b", naranja: "#f08a24",
+    marron: "#7b5236", beige: "#d8c3a5", arena: "#d8c3a5", transparente: "#e8eef3", madera: "#a57c52",
+  };
+  function hexDe(nombre, hex) {
+    if (/^#?[0-9a-f]{6}$/i.test(hex || "")) return hex.startsWith("#") ? hex : "#" + hex;
+    const n = norm(nombre);
+    const k = Object.keys(COLORES_COMUNES).find((c) => n.includes(c));
+    return k ? COLORES_COMUNES[k] : "#d2d2d7";
+  }
+
+  async function loadFromSheet(base) {
+    const [pTxt, cTxt] = await Promise.all([CFG.hojaProductosCSV, CFG.hojaColoresCSV].map(async (u) => {
+      const r = await fetch(u, { cache: "no-cache" });
+      if (!r.ok) throw new Error(r.status + " " + u);
+      return r.text();
+    }));
+
+    // "15 Pro Max", "iPhone 15 pro max" o "15pm" apuntan al mismo modelo.
+    const modeloAlias = {};
+    base.modelos.forEach((m) => {
+      modeloAlias[norm(m.id)] = m.id;
+      norm(m.nombre).replace(/iphone/g, "").split("/").forEach((parte) => {
+        const n = parte.replace(/\s+/g, "");
+        if (n) modeloAlias[n] = m.id;
+      });
+    });
+    const catAlias = {};
+    base.categorias.forEach((c) => { catAlias[norm(c.id)] = c.id; catAlias[norm(c.nombre)] = c.id; });
+
+    const coloresPor = {};
+    parseCSV(cTxt).forEach((c) => {
+      if (!c.producto_id || !c.color) return;
+      if (c.disponible && !siNo(c.disponible)) return;
+      (coloresPor[c.producto_id] ||= []).push({
+        nombre: c.color,
+        hex: hexDe(c.color, c.hex),
+        ...(c.imagen ? { imagen: urlImagen(c.imagen) } : {}),
+      });
+    });
+
+    return parseCSV(pTxt)
+      .filter((p) => p.id && p.nombre && (!p.activo || siNo(p.activo)))
+      .map((p) => {
+        let modelos = "todos";
+        if (p.modelos && norm(p.modelos) !== "todos") {
+          modelos = p.modelos.split(/[,;]/)
+            .map((m) => modeloAlias[norm(m).replace(/iphone/g, "").replace(/\s+/g, "")])
+            .filter(Boolean);
+        }
+        return {
+          id: p.id,
+          nombre: p.nombre,
+          categoria: catAlias[norm(p.categoria)] || p.categoria,
+          precio: numero(p.precio),
+          ...(numero(p.precio_antes) ? { precioAntes: numero(p.precio_antes) } : {}),
+          destacado: siNo(p.destacado),
+          etiquetas: p.etiquetas ? p.etiquetas.split(",").map((e) => e.trim()).filter(Boolean) : [],
+          resumen: p.resumen,
+          descripcion: p.descripcion,
+          modelos,
+          ...(p.personalizable ? { personalizable: p.personalizable } : {}),
+          ...(siNo(p.a_cotizar) ? { aCotizar: true } : {}),
+          ...(p.imagen ? { imagen: urlImagen(p.imagen) } : {}),
+          colores: coloresPor[p.id] || [],
+        };
+      });
   }
 
   function lineaDe(p) {

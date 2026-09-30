@@ -31,7 +31,9 @@ En `assets/js/config.js`:
 
 ## Cargar o editar productos
 
-Todo está en `data/products.json`. Cada producto se ve así:
+**Recomendado: desde Google Sheets**, sin tocar código. Ver [docs/PLANILLA.md](docs/PLANILLA.md). La plantilla lista para importar está en `docs/plantilla-catalogo.xlsx`.
+
+Si no hay planilla configurada, la web usa `data/products.json`, que también funciona como respaldo. Cada producto se ve así:
 
 ```json
 {
@@ -67,6 +69,7 @@ python3 -m http.server 8080
 
 ## Guías
 
+- [docs/PLANILLA.md](docs/PLANILLA.md): administrar productos, precios y stock desde Google Sheets.
 - [docs/PUBLICAR.md](docs/PUBLICAR.md): publicar gratis y conectar el dominio `.com.py`.
 - [docs/FOTOS.md](docs/FOTOS.md): cómo hacer las fotos del catálogo rápido y con calidad profesional, con ayuda de IA.
 - [docs/ROADMAP.md](docs/ROADMAP.md): próximos pasos (pagos online, WhatsApp 24 hs, CRM, contenido con IA).

@@ -12,6 +12,12 @@ window.STORE_CONFIG = {
   email: "",
   ciudad: "Asunción, Paraguay",
 
+  // Catálogo desde Google Sheets (ver docs/PLANILLA.md).
+  // Pegá acá los links "Publicar en la web → CSV" de cada pestaña.
+  // Si quedan vacíos, se usa data/products.json.
+  hojaProductosCSV: "",
+  hojaColoresCSV: "",
+
   // Mientras sea true se muestra un aviso de "precios de ejemplo" arriba de todo.
   modoDemo: true,
 

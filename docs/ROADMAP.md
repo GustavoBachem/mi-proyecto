@@ -4,7 +4,10 @@
 - [x] Tienda con catálogo, variantes (modelo + color), carrito y pedido por WhatsApp
 - [ ] Poner número de WhatsApp real e Instagram en `assets/js/config.js`
 - [ ] Recuperar el dominio en NIC.py y publicar en Cloudflare Pages ([PUBLICAR.md](PUBLICAR.md))
+- [x] Catálogo administrable desde Google Sheets ([PLANILLA.md](PLANILLA.md))
+- [ ] Importar la plantilla a Google Sheets, publicarla y pegar los links en `config.js`
 - [ ] Cargar productos y precios reales, y sacar fotos ([FOTOS.md](FOTOS.md))
+- [ ] n8n: cargar productos mandando foto + texto por WhatsApp o Telegram
 - [ ] Pasar el contenido de jazzlab3d.netlify.app a la sección de Impresiones 3D
 - [ ] `modoDemo: false`
 
