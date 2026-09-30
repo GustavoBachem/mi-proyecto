@@ -342,7 +342,12 @@
       e.preventDefault();
       const form = Object.fromEntries(new FormData(e.target));
       track("Contact");
-      window.open(waLink(buildWhatsAppMessage(form)), "_blank", "noopener");
+      // Los navegadores de Instagram/Facebook suelen bloquear ventanas nuevas:
+      // en ese caso abrimos WhatsApp en la misma pestaña.
+      const url = waLink(buildWhatsAppMessage(form));
+      const w = window.open(url, "_blank");
+      if (w) w.opener = null;
+      else location.href = url;
     });
   }
 
