@@ -1,0 +1,194 @@
+{
+  "modelos": [
+    { "id": "11", "nombre": "iPhone 11" },
+    { "id": "12", "nombre": "iPhone 12 / 12 Pro" },
+    { "id": "12pm", "nombre": "iPhone 12 Pro Max" },
+    { "id": "13", "nombre": "iPhone 13" },
+    { "id": "13p", "nombre": "iPhone 13 Pro" },
+    { "id": "13pm", "nombre": "iPhone 13 Pro Max" },
+    { "id": "14", "nombre": "iPhone 14" },
+    { "id": "14p", "nombre": "iPhone 14 Pro" },
+    { "id": "14pm", "nombre": "iPhone 14 Pro Max" },
+    { "id": "15", "nombre": "iPhone 15" },
+    { "id": "15p", "nombre": "iPhone 15 Pro" },
+    { "id": "15pm", "nombre": "iPhone 15 Pro Max" },
+    { "id": "16", "nombre": "iPhone 16" },
+    { "id": "16p", "nombre": "iPhone 16 Pro" },
+    { "id": "16pm", "nombre": "iPhone 16 Pro Max" },
+    { "id": "17", "nombre": "iPhone 17" },
+    { "id": "17p", "nombre": "iPhone 17 Pro" },
+    { "id": "17pm", "nombre": "iPhone 17 Pro Max" }
+  ],
+
+  "categorias": [
+    { "id": "fundas", "nombre": "Fundas", "linea": "iphone" },
+    { "id": "protectores", "nombre": "Protectores de pantalla y cámara", "linea": "iphone" },
+    { "id": "carga", "nombre": "Cargadores y cables", "linea": "iphone" },
+    { "id": "3d-decoracion", "nombre": "Decoración 3D", "linea": "3d" },
+    { "id": "3d-accesorios", "nombre": "Accesorios 3D", "linea": "3d" },
+    { "id": "3d-pedido", "nombre": "Impresión a pedido", "linea": "3d" }
+  ],
+
+  "productos": [
+    {
+      "id": "funda-silicona-magsafe",
+      "nombre": "Funda de silicona MagSafe",
+      "categoria": "fundas",
+      "precio": 120000,
+      "precioAntes": 150000,
+      "destacado": true,
+      "etiquetas": ["Más vendido"],
+      "resumen": "Tacto suave, interior de microfibra e imanes MagSafe.",
+      "descripcion": "Silicona líquida con interior de microfibra que protege tu iPhone de rayones. Imanes MagSafe integrados para cargadores y accesorios magnéticos. Bordes elevados para proteger pantalla y cámara.",
+      "modelos": "todos",
+      "colores": [
+        { "nombre": "Negro", "hex": "#1d1d1f" },
+        { "nombre": "Blanco", "hex": "#f2f0eb" },
+        { "nombre": "Azul marino", "hex": "#1f2f4f" },
+        { "nombre": "Rosa", "hex": "#f4b6c2" },
+        { "nombre": "Lila", "hex": "#b9a7d6" },
+        { "nombre": "Verde salvia", "hex": "#9fb59a" },
+        { "nombre": "Rojo", "hex": "#c8102e" },
+        { "nombre": "Arena", "hex": "#d8c3a5" }
+      ]
+    },
+    {
+      "id": "funda-transparente-magsafe",
+      "nombre": "Funda transparente MagSafe",
+      "categoria": "fundas",
+      "precio": 95000,
+      "destacado": true,
+      "etiquetas": ["No se amarillenta"],
+      "resumen": "Mostrá el color de tu iPhone con protección anti-caídas.",
+      "descripcion": "Policarbonato rígido con bordes de TPU que absorben impactos. Tratamiento anti-amarillo y anillo MagSafe de alta sujeción.",
+      "modelos": "todos",
+      "colores": [
+        { "nombre": "Transparente", "hex": "#e8eef3" },
+        { "nombre": "Negro humo", "hex": "#4a4a4f" }
+      ]
+    },
+    {
+      "id": "funda-antigolpe",
+      "nombre": "Funda antigolpe reforzada",
+      "categoria": "fundas",
+      "precio": 110000,
+      "resumen": "Esquinas con cámara de aire y protección de grado militar.",
+      "descripcion": "Diseñada para el día a día más exigente: esquinas reforzadas, botones metálicos y marco elevado alrededor de la cámara.",
+      "modelos": ["13", "13p", "13pm", "14", "14p", "14pm", "15", "15p", "15pm", "16", "16p", "16pm", "17", "17p", "17pm"],
+      "colores": [
+        { "nombre": "Negro", "hex": "#1d1d1f" },
+        { "nombre": "Azul", "hex": "#2b5d8a" },
+        { "nombre": "Verde militar", "hex": "#4b5320" }
+      ]
+    },
+    {
+      "id": "vidrio-templado",
+      "nombre": "Vidrio templado 9H",
+      "categoria": "protectores",
+      "precio": 45000,
+      "destacado": true,
+      "etiquetas": ["Con kit de instalación"],
+      "resumen": "Cobertura completa, anti-huellas y fácil de colocar.",
+      "descripcion": "Vidrio templado de dureza 9H con bordes curvos 2.5D. Incluye marco de instalación, paño y adhesivo quita-polvo.",
+      "modelos": "todos",
+      "colores": [
+        { "nombre": "Transparente", "hex": "#dfe8ee" },
+        { "nombre": "Privacidad", "hex": "#2e2e33" }
+      ]
+    },
+    {
+      "id": "protector-camara",
+      "nombre": "Protector de cámara",
+      "categoria": "protectores",
+      "precio": 40000,
+      "resumen": "Anillos de vidrio individuales para cada lente.",
+      "descripcion": "Protegé los lentes de rayones y golpes sin afectar la calidad de tus fotos.",
+      "modelos": ["13", "13p", "13pm", "14", "14p", "14pm", "15", "15p", "15pm", "16", "16p", "16pm", "17", "17p", "17pm"],
+      "colores": [
+        { "nombre": "Negro", "hex": "#1d1d1f" },
+        { "nombre": "Plata", "hex": "#c9ccd1" },
+        { "nombre": "Dorado", "hex": "#d4b483" }
+      ]
+    },
+    {
+      "id": "cargador-20w",
+      "nombre": "Cargador rápido USB-C 20W",
+      "categoria": "carga",
+      "precio": 90000,
+      "resumen": "Cargá tu iPhone al 50% en unos 30 minutos.",
+      "descripcion": "Cargador de pared USB-C Power Delivery de 20W, compatible con carga rápida de iPhone. Enchufe tipo A (plano).",
+      "modelos": "todos",
+      "colores": [{ "nombre": "Blanco", "hex": "#f5f5f7" }]
+    },
+    {
+      "id": "cable-usbc",
+      "nombre": "Cable USB-C a Lightning / USB-C",
+      "categoria": "carga",
+      "precio": 55000,
+      "resumen": "1 metro, mallado y resistente.",
+      "descripcion": "Elegí el conector según tu modelo: Lightning (hasta iPhone 14) o USB-C (iPhone 15 en adelante).",
+      "modelos": "todos",
+      "colores": [
+        { "nombre": "Lightning", "hex": "#f5f5f7" },
+        { "nombre": "USB-C", "hex": "#e5e5ea" }
+      ]
+    },
+    {
+      "id": "3d-soporte-celular",
+      "nombre": "Soporte de escritorio para celular",
+      "categoria": "3d-accesorios",
+      "precio": 60000,
+      "destacado": true,
+      "etiquetas": ["Impreso en 3D"],
+      "resumen": "Estable, minimalista y con paso para el cable.",
+      "descripcion": "Soporte impreso en PLA de alta calidad. Ángulo ideal para videollamadas y ver contenido. Compatible con todos los celulares, con o sin funda.",
+      "colores": [
+        { "nombre": "Negro", "hex": "#1d1d1f" },
+        { "nombre": "Blanco", "hex": "#f5f5f7" },
+        { "nombre": "Madera", "hex": "#a57c52" },
+        { "nombre": "Violeta", "hex": "#7a4fbf" }
+      ]
+    },
+    {
+      "id": "3d-llavero-personalizado",
+      "nombre": "Llavero personalizado",
+      "categoria": "3d-accesorios",
+      "precio": 25000,
+      "etiquetas": ["Con tu nombre"],
+      "resumen": "Con nombre, logo o inicial. Ideal para regalos y eventos.",
+      "descripcion": "Llavero impreso en 3D con el texto o logo que quieras. Pedidos por cantidad para empresas, cumpleaños y eventos. Indicá el texto en el pedido.",
+      "personalizable": "Texto o nombre para el llavero",
+      "colores": [
+        { "nombre": "Negro", "hex": "#1d1d1f" },
+        { "nombre": "Rojo", "hex": "#c8102e" },
+        { "nombre": "Azul", "hex": "#2b5d8a" },
+        { "nombre": "Rosa", "hex": "#f4b6c2" }
+      ]
+    },
+    {
+      "id": "3d-maceta-geometrica",
+      "nombre": "Maceta geométrica",
+      "categoria": "3d-decoracion",
+      "precio": 70000,
+      "destacado": true,
+      "resumen": "Para suculentas y cactus, con plato de drenaje.",
+      "descripcion": "Diseño low-poly impreso en 3D, con orificio de drenaje y plato incluido. Tamaño aproximado: 10 cm.",
+      "colores": [
+        { "nombre": "Blanco", "hex": "#f5f5f7" },
+        { "nombre": "Terracota", "hex": "#c56a45" },
+        { "nombre": "Verde", "hex": "#6b8f5e" }
+      ]
+    },
+    {
+      "id": "3d-impresion-a-pedido",
+      "nombre": "Impresión 3D a pedido",
+      "categoria": "3d-pedido",
+      "precio": 0,
+      "aCotizar": true,
+      "resumen": "Mandanos tu idea, archivo o foto y te cotizamos.",
+      "descripcion": "Repuestos, prototipos, figuras, souvenirs y piezas a medida. Enviá tu archivo STL o una foto con medidas y te respondemos con precio y tiempo de entrega.",
+      "personalizable": "Contanos qué querés imprimir (medidas, cantidad, color)",
+      "colores": []
+    }
+  ]
+}
