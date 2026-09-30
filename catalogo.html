@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es-PY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo | MyCase Store</title>
+  <meta name="description" content="Catálogo de fundas, protectores y cargadores para iPhone, y productos impresos en 3D.">
+  <meta name="theme-color" content="#0b0b0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="catalogo">
+  <main class="container section">
+    <div class="section-head">
+      <h1 id="cat-title">Catálogo</h1>
+      <span id="cat-count" class="muted"></span>
+    </div>
+
+    <div class="filters">
+      <div id="f-linea" class="seg" role="group" aria-label="Línea">
+        <button type="button" data-linea="">Todo</button>
+        <button type="button" data-linea="iphone">Accesorios iPhone</button>
+        <button type="button" data-linea="3d">Impresiones 3D</button>
+      </div>
+      <div class="filter-row">
+        <label id="f-modelo-wrap" class="select-wrap"><span class="sr-only">Modelo</span><select id="f-modelo"></select></label>
+        <label class="search-wrap"><span class="sr-only">Buscar</span><input id="f-texto" type="search" placeholder="Buscar producto o color…"></label>
+      </div>
+      <div id="f-cat" class="chips" role="group" aria-label="Categoría"></div>
+    </div>
+
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

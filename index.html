@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es-PY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyCase Store | Accesorios iPhone e impresiones 3D en Paraguay</title>
+  <meta name="description" content="Fundas, vidrios templados, cargadores para iPhone y productos impresos en 3D. Envíos a todo Paraguay. Pedí por WhatsApp.">
+  <meta property="og:title" content="MyCase Store — Accesorios iPhone e impresiones 3D">
+  <meta property="og:description" content="Fundas para todos los modelos de iPhone, protectores, cargadores e impresiones 3D. Envíos a todo Paraguay.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.mycasestore.com.py/">
+  <meta name="theme-color" content="#0b0b0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="inicio">
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Envíos a todo Paraguay</p>
+          <h1>Protegé tu iPhone.<br>Imprimí tus ideas.</h1>
+          <p class="lead">Fundas para todos los modelos y colores, protectores y cargadores. Y productos impresos en 3D, listos o a pedido.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="catalogo.html?linea=iphone">Ver accesorios iPhone</a>
+            <a class="btn btn-ghost" href="catalogo.html?linea=3d">Ver impresiones 3D</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <a href="catalogo.html?linea=iphone" class="hero-tile tile-iphone">
+            <div id="hero-iphone" class="hero-img"></div>
+            <span>Fundas y accesorios</span>
+          </a>
+          <a href="catalogo.html?linea=3d" class="hero-tile tile-3d">
+            <div id="hero-3d" class="hero-img"></div>
+            <span>Impresión 3D</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container finder">
+      <form action="catalogo.html" class="finder-form">
+        <input type="hidden" name="linea" value="iphone">
+        <label for="finder-modelo">¿Qué iPhone tenés?</label>
+        <select id="finder-modelo" name="modelo">
+          <option value="17pm">iPhone 17 Pro Max</option>
+          <option value="17p">iPhone 17 Pro</option>
+          <option value="17">iPhone 17</option>
+          <option value="16pm">iPhone 16 Pro Max</option>
+          <option value="16p">iPhone 16 Pro</option>
+          <option value="16">iPhone 16</option>
+          <option value="15pm">iPhone 15 Pro Max</option>
+          <option value="15p">iPhone 15 Pro</option>
+          <option value="15">iPhone 15</option>
+          <option value="14pm">iPhone 14 Pro Max</option>
+          <option value="14p">iPhone 14 Pro</option>
+          <option value="14">iPhone 14</option>
+          <option value="13pm">iPhone 13 Pro Max</option>
+          <option value="13p">iPhone 13 Pro</option>
+          <option value="13">iPhone 13</option>
+          <option value="12pm">iPhone 12 Pro Max</option>
+          <option value="12">iPhone 12 / 12 Pro</option>
+          <option value="11">iPhone 11</option>
+        </select>
+        <button class="btn btn-primary" type="submit">Ver lo que le queda</button>
+      </form>
+    </section>
+
+    <section class="container section">
+      <div class="section-head">
+        <h2>Destacados</h2>
+        <a href="catalogo.html">Ver todo →</a>
+      </div>
+      <div id="destacados" class="grid"></div>
+    </section>
+
+    <section class="container section banner-3d">
+      <div>
+        <p class="eyebrow">Impresión 3D a pedido</p>
+        <h2>¿Tenés una idea? La imprimimos.</h2>
+        <p>Repuestos, souvenirs, llaveros con logo, figuras y prototipos. Mandanos una foto o tu archivo STL y te cotizamos.</p>
+      </div>
+      <a class="btn btn-primary" href="producto.html?id=3d-impresion-a-pedido">Pedir cotización</a>
+    </section>
+
+    <section id="como-comprar" class="container section">
+      <h2>Cómo comprar</h2>
+      <ol class="steps">
+        <li><strong>Elegí</strong><span>Tu modelo de iPhone, el color y la cantidad.</span></li>
+        <li><strong>Enviá tu pedido</strong><span>Con un clic te llega armado a nuestro WhatsApp.</span></li>
+        <li><strong>Confirmamos</strong><span>Stock, envío y forma de pago en minutos.</span></li>
+        <li><strong>Recibí</strong><span>Delivery en Asunción o envío al interior.</span></li>
+      </ol>
+    </section>
+
+    <section class="container section faq">
+      <h2>Preguntas frecuentes</h2>
+      <details><summary>¿Hacen envíos al interior?</summary><p>Sí, enviamos a todo Paraguay por encomienda. En Asunción y Gran Asunción hacemos delivery.</p></details>
+      <details><summary>¿Cómo sé qué funda le queda a mi iPhone?</summary><p>En cada producto elegís tu modelo exacto. Si tenés dudas, mirá en Ajustes → General → Información → Nombre del modelo, o escribinos.</p></details>
+      <details><summary>¿Qué formas de pago aceptan?</summary><p>Transferencia bancaria, efectivo contra entrega y tarjeta mediante link de pago.</p></details>
+      <details><summary>¿Cuánto tarda una impresión 3D a pedido?</summary><p>Depende del tamaño y la cantidad. Generalmente entre 2 y 5 días hábiles; te lo confirmamos al cotizar.</p></details>
+      <p><a class="btn btn-wa" data-wa="¡Hola! Tengo una consulta." target="_blank" rel="noopener" href="#">Otra consulta por WhatsApp</a></p>
+    </section>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
