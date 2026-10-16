@@ -72,7 +72,7 @@
 - **Por plataforma:** TikTok algo más crudo y rápido. En Reels, el mismo video con un caption un
   poco más ordenado.
 - **Pronunciación:** JazzLab = **"Yáss-lab"** · Bachem = **"Bachem"** (tal cual se lee en
-  español: BA-chem) · MyCase = "Mai-queis".
+  español: BA-chem) · MyCase = **"Mai-queis"** (confirmado).
 
 ## Proof
 - **Números:** ~150 pedidos/mes (≈6 por día). Case de silicona: 40.000 Gs. Porta incienso:
