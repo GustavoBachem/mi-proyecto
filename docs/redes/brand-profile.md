@@ -98,7 +98,7 @@
 
 ## Channels
 - **TikTok:** @gusbachem (principal, fundador) · @mycasestorepy (tienda)
-- **Instagram:** cuenta personal de Gus (los Reels de fundador) · @mycase_storepy · @jazzlab3d (producto, en Collab)
+- **Instagram:** @gusbachem (los Reels de fundador) · @mycase_storepy · @jazzlab3d (producto, en Collab)
 - **Ritmo:** 2 a 3 videos por semana en @gusbachem, con ayuda de la IA para guiones y edición.
 - **Formato:** cualquiera (a cámara, voz en off, pantalla y manos).
 - **Idioma:** español de Paraguay con "vos" y jopará natural.

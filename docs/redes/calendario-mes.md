@@ -23,7 +23,7 @@
 | Cuenta | Qué publica |
 |---|---|
 | **TikTok @gusbachem** | Los 12 videos. Es la cuenta principal. |
-| **Instagram personal de Gus** | Los 12 videos como Reel, exportados **sin la marca de agua de TikTok**. Para los videos de producto, hacer una colaboración (Collab) con @mycase_storepy o @jazzlab3d, así aparecen en las dos cuentas. |
+| **Instagram @gusbachem** | Los 12 videos como Reel, exportados **sin la marca de agua de TikTok**. Para los videos de producto, hacer una colaboración (Collab) con @mycase_storepy o @jazzlab3d, así aparecen en las dos cuentas. |
 | **TikTok @mycasestorepy** | Los videos de producto o de iPhone (el 9) y cortes de producto. |
 | **Instagram @jazzlab3d** | Los videos de impresión 3D (el 5) y la historia de JazzLab (el 11). |
 | **Stories de IG** | La encuesta de prueba de la semana 1 y el aviso "video nuevo" cada vez que publicás. |
@@ -38,7 +38,7 @@
 | 3 | **Vie 23 oct** | Sistema (opinión) | 2 días… lo difícil fue otra cosa | "Me llevó 2 días armar mi sistema con IA. Lo difícil no fue la IA." | Cámara | Seguir | ✅ Guion listo |
 | 4 | **Lun 26 oct** | Sistema | Un botón al delivery · *parte 3* | "Mi delivery recibe la ruta y la plata a cobrar con un solo botón." | Pantalla + celular | Guardar | Guion en semana 2 |
 | 5 | **Mié 28 oct** | Producto (JazzLab) | De la impresora a la pared | Casco ya colgado + "Esto salió de una impresora 3D" | Manos + timelapse | @jazzlab3d · 70.000 Gs | ✅ Guion listo (falta poner las horas) |
-| 6 | **Vie 30 oct** | Sistema | Esto le pedí a Claude, palabra por palabra | "Esto es lo que le escribí a la IA para armar mi sistema." | Pantalla de la conversación | "Comentá IA y te paso el primer mensaje" ❓ | Guion en semana 2 |
+| 6 | **Vie 30 oct** | Sistema | Esto le pedí a Claude, palabra por palabra | "Esto es lo que le escribí a la IA para armar mi sistema." | Pantalla de la conversación | "Guardá este video" (el mensaje completo se ve en pantalla) | Guion en semana 2 |
 | 7 | **Lun 2 nov** | Números | **El cuadre del mes: octubre** | "Octubre: esto gané de verdad, después de publicidad y envíos." | Resumen en pantalla + cámara | Seguir para el de noviembre | Guion en semana 3. Necesita el cierre de octubre |
 | 8 | **Mié 4 nov** | Detrás de escena | Un día manejando dos tiendas solo | "6 pedidos, una impresora 3D y yo solo. Así es un día." | Cámara en mano | "¿Qué parte querés ver más?" | Guion en semana 3 |
 | 9 | **Vie 6 nov** | Producto (MyCase) | Los modelos de iPhone que más se venden en PY | "Miré mis ventas de octubre: este es el iPhone que más tiene la gente en Paraguay." | Gráfico del sistema + manos | "Comentá tu modelo" | Guion en semana 3 |
@@ -47,7 +47,7 @@
 | 12 | **Vie 13 nov** | Números (opinión) | Facturar no es ganar | "Podés vender 150 pedidos por mes y no saber si ganás plata." | Cámara, frase fuerte | Seguir | Guion en semana 4 |
 
 ❓ = un dato a confirmar antes de grabar:
-- **Video 6:** ¿te animás a pasar tu primer mensaje a Claude a quien lo pida en comentarios?
+- **Video 6:** si en los comentarios piden "pasame el mensaje", el próximo video cierra con "Comentá IA y te lo paso por privado".
 
 ---
 
