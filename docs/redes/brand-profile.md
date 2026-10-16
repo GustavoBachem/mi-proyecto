@@ -82,7 +82,7 @@
 - **El sistema (prueba visual):** carga de pedidos con precios que se completan solos, ruta de
   delivery ordenada por horario y distancia desde links de Google Maps, envío de ruta y cuadre
   al delivery por WhatsApp con un botón, resumen del mes con ganancia real, publicidad, productos
-  y modelos de iPhone más vendidos, y cuadre por tienda.
+  y modelos de iPhone más vendidos, y cuadre por tienda (cada tienda tiene su propia cuenta bancaria).
 - **Números del negocio en video:** Gus está OK con mostrar cifras reales y porcentajes. Se
   revisa video por video.
 - **Testimonios:** ninguno registrado todavía. Usar capturas de clientes solo con permiso y sin
@@ -98,7 +98,7 @@
 
 ## Channels
 - **TikTok:** @gusbachem (principal, fundador) · @mycasestorepy (tienda)
-- **Instagram:** @mycase_storepy · @jazzlab3d (Reels reutilizados de TikTok)
+- **Instagram:** cuenta personal de Gus (los Reels de fundador) · @mycase_storepy · @jazzlab3d (producto, en Collab)
 - **Ritmo:** 2 a 3 videos por semana en @gusbachem, con ayuda de la IA para guiones y edición.
 - **Formato:** cualquiera (a cámara, voz en off, pantalla y manos).
 - **Idioma:** español de Paraguay con "vos" y jopará natural.

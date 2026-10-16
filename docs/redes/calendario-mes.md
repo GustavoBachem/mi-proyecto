@@ -23,7 +23,7 @@
 | Cuenta | Qué publica |
 |---|---|
 | **TikTok @gusbachem** | Los 12 videos. Es la cuenta principal. |
-| **Instagram** | El mismo video como Reel, exportado **sin la marca de agua de TikTok**. ❓ *Falta definir en qué cuenta: ver la pregunta al final.* |
+| **Instagram personal de Gus** | Los 12 videos como Reel, exportados **sin la marca de agua de TikTok**. Para los videos de producto, hacer una colaboración (Collab) con @mycase_storepy o @jazzlab3d, así aparecen en las dos cuentas. |
 | **TikTok @mycasestorepy** | Los videos de producto o de iPhone (el 9) y cortes de producto. |
 | **Instagram @jazzlab3d** | Los videos de impresión 3D (el 5) y la historia de JazzLab (el 11). |
 | **Stories de IG** | La encuesta de prueba de la semana 1 y el aviso "video nuevo" cada vez que publicás. |
@@ -42,13 +42,12 @@
 | 7 | **Lun 2 nov** | Números | **El cuadre del mes: octubre** | "Octubre: esto gané de verdad, después de publicidad y envíos." | Resumen en pantalla + cámara | Seguir para el de noviembre | Guion en semana 3. Necesita el cierre de octubre |
 | 8 | **Mié 4 nov** | Detrás de escena | Un día manejando dos tiendas solo | "6 pedidos, una impresora 3D y yo solo. Así es un día." | Cámara en mano | "¿Qué parte querés ver más?" | Guion en semana 3 |
 | 9 | **Vie 6 nov** | Producto (MyCase) | Los modelos de iPhone que más se venden en PY | "Miré mis ventas de octubre: este es el iPhone que más tiene la gente en Paraguay." | Gráfico del sistema + manos | "Comentá tu modelo" | Guion en semana 3 |
-| 10 | **Lun 9 nov** | Sistema | Cuánta plata es de cada tienda · *parte 4* | "Manejo dos tiendas con una sola cuenta del banco. Así separo la plata." ❓ | Pantalla + voz | Guardar | Guion en semana 4 |
+| 10 | **Lun 9 nov** | Sistema | Cuánta plata es de cada tienda · *parte 4* | "Dos tiendas, dos cuentas del banco. Así sé cuánta plata va a cada una." | Pantalla + voz | Guardar | Guion en semana 4 |
 | 11 | **Mié 11 nov** | Detrás de escena | Por qué abrí una segunda tienda | "Tenía una tienda que andaba hace 3 años. Igual abrí otra." | Cámara | "¿Vos abrirías una segunda?" | Guion en semana 4 |
 | 12 | **Vie 13 nov** | Números (opinión) | Facturar no es ganar | "Podés vender 150 pedidos por mes y no saber si ganás plata." | Cámara, frase fuerte | Seguir | Guion en semana 4 |
 
 ❓ = un dato a confirmar antes de grabar:
 - **Video 6:** ¿te animás a pasar tu primer mensaje a Claude a quien lo pida en comentarios?
-- **Video 10:** ¿usás una sola cuenta bancaria para las dos tiendas? Si no, cambiamos el gancho.
 
 ---
 
