@@ -48,14 +48,20 @@
 ## Voice
 > **Provisional.** Se ajusta con los primeros guiones: Gus marca "esto no lo diría" y se corrige acá.
 
-- **Dimensiones:** Formalidad 1/5 · Calidez 4/5 · Autoridad 2/5 (par, "uno más") · Energía 3/5 · Humor 3/5 · Pulido 2/5 (crudo, real)
+- **Dimensiones:** Formalidad 1/5 · Calidez 4/5 · Autoridad 3/5 (par que habla con números reales) · Energía 4/5 · Humor 3/5 · Pulido 2/5 (crudo, real)
+- **Referentes:** Alex Hormozi (claridad, números concretos, frases que se guardan), Gary Vee
+  (documentar en vez de crear, crudo, día a día), Grant Cardone (energía, ir al grano).
+  **Se toma:** lo directo y los números. **No se toma:** gritos, ostentar plata o lujos, "hacete
+  millonario". Esa línea choca con un negocio chico y real, y le quita credibilidad.
 - **Suena ___, nunca ___:**
   - cercano, nunca vendedor de curso
   - práctico, nunca técnico
   - honesto con lo que cuesta, nunca dramático
   - orgulloso de lo que armó, nunca agrandado
+  - directo como Hormozi, nunca ostentoso
 - **Palabras que usa:** vos, "mirá", "te muestro", pedido, delivery, cuadre, la pizarra,
-  "lo armé con IA", guaraníes / "mil" (40 mil), ruta. Español de Paraguay, sin forzar.
+  "lo armé con IA", guaraníes / "mil" (40 mil), ruta. Español de Paraguay con **jopará** natural (palabras sueltas como "nde", "che", "vai",
+  "jaha"), solo cuando salga solo. Si aparece en el texto en pantalla, que se entienda por el contexto.
 - **Palabras prohibidas:** "revolucionario", "game changer", "desbloqueá", "hackeá tu negocio",
   "ingresos pasivos", "libertad financiera", "en el mundo de hoy", "emprendedor exitoso".
 - **Temas difíciles:** si algo salió mal (un pedido perdido, un mes flojo), se cuenta tal cual,
@@ -65,7 +71,8 @@
   en el caption. 3 a 5 hashtags como mucho.
 - **Por plataforma:** TikTok algo más crudo y rápido. En Reels, el mismo video con un caption un
   poco más ordenado.
-- **Pronunciación:** *pendiente de confirmar* — "JazzLab" (¿"yas-lab"?) y "Bachem".
+- **Pronunciación:** JazzLab = **"Yáss-lab"** · Bachem = **"Bachem"** (tal cual se lee en
+  español: BA-chem) · MyCase = "Mai-queis".
 
 ## Proof
 - **Números:** ~150 pedidos/mes (≈6 por día). Case de silicona: 40.000 Gs. Porta incienso:
@@ -94,7 +101,7 @@
 - **Instagram:** @mycase_storepy · @jazzlab3d (Reels reutilizados de TikTok)
 - **Ritmo:** 2 a 3 videos por semana en @gusbachem, con ayuda de la IA para guiones y edición.
 - **Formato:** cualquiera (a cámara, voz en off, pantalla y manos).
-- **Idioma:** español de Paraguay con "vos". ¿Jopará? *pendiente*.
+- **Idioma:** español de Paraguay con "vos" y jopará natural.
 
 ## Operational defaults (tool skills read these)
 - **IA y medios sintéticos:** se puede nombrar a **Claude** como la IA usada. Se puede usar voz
@@ -118,11 +125,15 @@
 - **Datos de los deliverys:** no mostrar nombres ni caras de los repartidores sin permiso.
 
 ## Show, don't tell — example posts
-- **Le gustan:** *pendiente*. Pedir 2 o 3 videos de TikTok/Reels que le gusten y uno que no.
-- **No le gustan:** *pendiente*.
+- **Le gustan (estilo de referencia):** Alex Hormozi (una idea por video, número arriba de todo,
+  frase final que se guarda), Gary Vee (cámara en mano, el día real sin producir), Grant Cardone
+  (arranque con energía, sin vueltas).
+- **No le gustan:** *sin definir*. Por el perfil, evitar el estilo "gurú" de autos, fajos de
+  plata y "te enseño a facturar".
 
 ## Notes
-- **Pregunta abierta:** ¿el sistema podría ofrecerse a otros emprendedores en algún momento
-  (vender, plantilla, curso)? Eso cambia el CTA a futuro. Por ahora, no se promete nada.
+- **A futuro (sin apuro):** Gus podría ofrecer el sistema a otros emprendedores algún día, si es
+  simple y no lo desenfoca. Por ahora no se promete ni se vende nada. Si los comentarios piden
+  "pasame el sistema" seguido, eso es la señal para pensarlo (y se anota cuántas veces pasa).
 - **Fechas fuertes para las tiendas:** lanzamiento de iPhone nuevo (septiembre), Día del Padre
   y de la Madre, Navidad y fin de año.
