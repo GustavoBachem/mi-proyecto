@@ -36,15 +36,15 @@
 | 4 | "Cargo un pedido en 10 segundos: los precios se acuerdan solos." | Pantalla | S | 4 | |
 | 5 ⭐ | "Cómo sé cuánta plata es de cada tienda." Cuadre por tienda. | Pantalla + voz | S | 4 | Ideal para el segmento emprendedor |
 | 6 ⭐ | "Esto fue lo que le pedí a Claude, palabra por palabra." | Pantalla de la conversación | M | 5 | Lo más pedido en este nicho. Muestra que no es magia |
-| 7 ❓ | "Lo que la IA hizo mal y cómo lo arreglé." | Cámara + pantalla | M | 4 | Necesita un caso real |
-| 8 ❓ | "Cuánto tiempo y cuánta plata me costó armar el sistema." | Cámara | S | 5 | Necesita el número real |
+| 7 | "Lo que la IA hizo mal y cómo lo arreglé." | Cámara + pantalla | M | 3 | ✅ Pasó, pero fueron cosas mínimas. Mejor como parte de otro video |
+| 8 ⭐ | "Me llevó 2 días armar el sistema. Lo difícil fue otra cosa." | Cámara + pantalla | S | 5 | ✅ 2 días con Claude (plan Pro). Antes hubo que poner al día 4 meses de Excel atrasado |
 | 9 | "3 cosas que ordenaría primero si vendés por WhatsApp." | Cámara | S | 4 | Lista estilo Hormozi |
 | 10 | Responder comentarios tipo "¿me pasás el sistema?" | Respuesta en video | S | 3 | Solo cuando aparezcan de verdad |
 
 ## Pilar 2 — Detrás de escena
 | # | Idea | Formato | Esf. | Pts | Nota |
 |---|---|---|---|---|---|
-| 11 ⭐❓ | "Así manejaba ~150 pedidos al mes: con una pizarra." Antes y después. | Foto o toma de la pizarra + pantalla | M | 5 | ¿Existe la pizarra o una foto vieja? Borrar datos de clientes |
+| 11 ⭐ | "Así manejaba ~150 pedidos al mes: con una pizarra." Antes y después. | La pizarra real + pantalla | M | 5 | ✅ La pizarra existe (limpia, sin datos). Dolor real: se perdían datos de ventas |
 | 12 ⭐ | "Un día manejando dos tiendas solo." | Cámara en mano, estilo Gary Vee | M | 5 | Mañana de pedidos → impresora → entregas |
 | 13 ⭐ | "De archivo a producto: imprimiendo un soporte de casco." | Timelapse + manos | S | 4 | Va también en @jazzlab3d |
 | 14 | "Armando la ruta de los deliverys de la mañana." | Pantalla + celular | S | 4 | Rutina real, con datos de ejemplo |
