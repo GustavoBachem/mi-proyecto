@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jazz Lab 3D — Catálogo</title>
+<meta name="description" content="Catálogo de productos impresos en 3D — Jazz Lab 3D, Paraguay">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --magenta:#C81E70;
+    --magenta-deep:#93144F;
+    --blush:#FBEAF1;
+    --ink:#181310;
+    --ink-soft:#2A211D;
+    --paper:#FFFCF9;
+    --steel:#9C9792;
+    --line: rgba(24,19,16,0.1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Unbounded',sans-serif;
+    margin:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 6vw;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:20;
+  }
+  .nav .wordmark{
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+  }
+  .nav .wordmark span{color:var(--magenta);}
+  .nav a.nav-cta{
+    background:var(--ink);
+    color:var(--paper);
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+    padding:64px 6vw 90px;
+  }
+  /* layer-line texture, echoing 3D print layers */
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.035) 0px,
+      rgba(255,255,255,0.035) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--magenta);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--magenta);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(34px,5vw,54px);
+    line-height:1.05;
+    font-weight:600;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--magenta);
+  }
+  .hero p.sub{
+    margin-top:20px;
+    font-size:16px;
+    line-height:1.6;
+    color:rgba(255,252,249,0.75);
+    max-width:44ch;
+  }
+  .hero-ctas{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14px;
+    transition:transform 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{
+    background:var(--magenta);
+    color:var(--paper);
+  }
+  .btn-outline{
+    border:1px solid rgba(255,252,249,0.35);
+    color:var(--paper);
+  }
+
+  .hero-visual{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-visual .ring{
+    position:absolute;
+    width:min(420px,90%);
+    aspect-ratio:1;
+    border-radius:50%;
+    border:1px solid rgba(200,30,112,0.35);
+  }
+  .hero-visual .ring.r2{
+    width:min(340px,75%);
+    border-color:rgba(200,30,112,0.55);
+  }
+  .hero-visual img{
+    position:relative;
+    width:min(300px,68%);
+    border-radius:18px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.45);
+  }
+
+  /* ---------- PRODUCTS ---------- */
+  .section-head{
+    max-width:1180px;
+    margin:0 auto;
+    padding:70px 6vw 30px;
+    text-align:center;
+  }
+  .section-head .eyebrow{color:var(--magenta-deep);justify-content:center;}
+  .section-head h2{
+    font-size:clamp(26px,3.4vw,36px);
+    font-weight:600;
+  }
+  .section-head p{
+    margin-top:12px;
+    color:var(--ink-soft);
+    opacity:0.7;
+    max-width:50ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .grid{
+    max-width:1180px;
+    margin:0 auto;
+    padding:20px 6vw 90px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:32px;
+  }
+
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:22px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover{
+    box-shadow:0 20px 40px rgba(24,19,16,0.08);
+    transform:translateY(-3px);
+  }
+  .card-media{
+    position:relative;
+    aspect-ratio:3/4;
+    background:var(--blush);
+    overflow:hidden;
+  }
+  .card-media img{
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .price-tag{
+    position:absolute;
+    top:14px;
+    left:14px;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Unbounded',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    padding:8px 14px;
+    border-radius:999px;
+  }
+  .card-body{
+    padding:22px 22px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    flex:1;
+  }
+  .card-body h3{
+    font-size:17px;
+    font-weight:600;
+    line-height:1.3;
+  }
+  .card-body .desc{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    opacity:0.75;
+    line-height:1.5;
+    margin-bottom:6px;
+  }
+
+  .variants{
+    display:flex;
+    gap:8px;
+    margin:6px 0 12px;
+    flex-wrap:wrap;
+  }
+  .variants img{
+    width:46px;height:46px;
+    border-radius:10px;
+    object-fit:cover;
+    border:2px solid var(--line);
+    cursor:pointer;
+    transition:border-color 0.15s ease, transform 0.15s ease;
+  }
+  .variants img:hover{transform:translateY(-2px);}
+  .variants img.active{border-color:var(--magenta);}
+
+  .card-cta{
+    margin-top:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:var(--magenta);
+    color:#fff;
+    padding:12px;
+    border-radius:12px;
+    font-weight:600;
+    font-size:14px;
+  }
+  .card-cta:hover{background:var(--magenta-deep);}
+
+  /* placeholder card for future products */
+  .card.placeholder{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    border:1.5px dashed var(--line);
+    background:transparent;
+    padding:40px 24px;
+    color:var(--ink-soft);
+  }
+  .card.placeholder .plus{
+    width:44px;height:44px;
+    border-radius:50%;
+    border:1.5px dashed var(--steel);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+    margin-bottom:14px;
+    color:var(--steel);
+  }
+
+  /* ---------- FILTROS POR CATEGORÍA ---------- */
+  .filtros{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 6vw;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .filtro{
+    font:600 13px 'Inter',sans-serif;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    cursor:pointer;
+    transition:background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .filtro:hover{border-color:var(--magenta);}
+  .filtro.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .card.oculto{display:none;}
+  @media (max-width:600px){
+    .filtros{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:6px;-webkit-overflow-scrolling:touch;}
+    .filtro{flex:0 0 auto;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    color:var(--paper);
+    padding:50px 6vw 34px;
+  }
+  .foot-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    border-bottom:1px solid rgba(255,252,249,0.12);
+    padding-bottom:28px;
+  }
+  .foot-inner .wordmark{
+    font-family:'Unbounded',sans-serif;
+    font-weight:600;
+    font-size:16px;
+  }
+  .foot-links{
+    display:flex;
+    gap:22px;
+    font-size:14px;
+  }
+  .foot-links a{opacity:0.75;}
+  .foot-links a:hover{opacity:1;color:var(--magenta);}
+  .foot-bottom{
+    max-width:1180px;
+    margin:18px auto 0;
+    font-size:12.5px;
+    opacity:0.45;
+    text-align:center;
+  }
+
+  @media (max-width:820px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-visual{order:-1;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<div class="nav">
+  <div class="wordmark">JAZZ<span>LAB</span> 3D</div>
+  <a class="nav-cta" href="https://wa.me/595986109871?text=Hola!%20Vi%20el%20cat%C3%A1logo%20de%20Jazz%20Lab%203D%20y%20quiero%20consultar" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Impresión 3D · Paraguay</div>
+      <h1>Diseño, orden y<br><em>funcionalidad</em> en 3D.</h1>
+      <p class="sub">Productos impresos en 3D pensados para decorar tus espacios, mantener todo organizado y brindarte soluciones prácticas para el día a día.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+        <a class="btn btn-outline" href="https://instagram.com/jazzlab3d" target="_blank" rel="noopener">@jazzlab3d</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ring"></div>
+      <div class="ring r2"></div>
+      <img src="images/logo.jpg" alt="Logo Jazz Lab 3D">
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATALOGO ================= -->
+<div class="section-head" id="catalogo">
+  <div class="eyebrow">Catálogo</div>
+  <h2>Nuestros productos</h2>
+  <p>Cada pieza se imprime bajo pedido. Elegí el modelo que te guste y coordiná tu compra directo por WhatsApp.</p>
+</div>
+
+<!-- Botones de categorías. Para crear una categoría nueva, copiá un botón y cambiá data-filtro y el nombre. -->
+<div class="filtros" id="filtros">
+  <button class="filtro active" data-filtro="todos">Todos</button>
+  <button class="filtro" data-filtro="hogar">Hogar y organización</button>
+  <button class="filtro" data-filtro="deco">Decoración</button>
+  <button class="filtro" data-filtro="gamer">Gamer</button>
+  <button class="filtro" data-filtro="religiosos">Religiosos y Navidad</button>
+  <button class="filtro" data-filtro="accesorios">Accesorios</button>
+</div>
+
+<div class="grid">
+
+  <!-- ############ CATEGORÍA: Hogar y organización (data-categoria="hogar") ############ -->
+
+  <!-- ===== PRODUCTO: Soporte para casco ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 70.000</span>
+      <img id="img-casco" src="images/soporte-casco-main.jpg" alt="Soporte para casco con gancho multiuso">
+    </div>
+    <div class="card-body">
+      <h3>Soporte para casco</h3>
+      <p class="desc">Con gancho multiuso para campera y guantes. Instalación fácil y resistente.</p>
+      <div class="variants">
+        <img src="images/soporte-casco-main.jpg" alt="Variante clásica" class="active" onclick="swapImg('img-casco', this)">
+        <img src="images/soporte-calavera.jpg" alt="Variante Calavera" onclick="swapImg('img-casco', this)">
+      </div>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Soporte%20para%20casco%20(Gs.%2070.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Organizador de pared ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 60.000</span>
+      <img src="images/llavero-pared.jpg" alt="Organizador de pared con ganchos para llaves">
+    </div>
+    <div class="card-body">
+      <h3>Organizador de pared</h3>
+      <p class="desc">Estante con compartimentos y ganchos para llaves. Ideal para la entrada de casa.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Organizador%20de%20pared%20(Gs.%2060.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Organizador para controles ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 60.000</span>
+      <img src="images/organizador-controles.jpg" alt="Organizador para controles remotos">
+    </div>
+    <div class="card-body">
+      <h3>Organizador para controles</h3>
+      <p class="desc">Mantené a mano todos los controles remotos de tu living, ordenados en un solo lugar.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Organizador%20de%20controles%20(Gs.%2060.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Organizador de pastillas ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 25.000</span>
+      <img src="images/organizador-pastillas.jpg" alt="Organizador de pastillas">
+    </div>
+    <div class="card-body">
+      <h3>Organizador de pastillas</h3>
+      <p class="desc">Estuche compacto con 4 compartimentos, ideal para organizar tu medicación diaria o de viaje. Tapa con cierre seguro.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Organizador%20de%20pastillas%20(Gs.%2025.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Soporte para esponja ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 32.000</span>
+      <img src="images/soporte-esponja.jpg" alt="Soporte para esponja de cocina">
+    </div>
+    <div class="card-body">
+      <h3>Soporte para esponja</h3>
+      <p class="desc">Soporte para esponja, para darle un toque divertido a tu cocina.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Soporte%20para%20esponja%20(Gs.%2032.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Abridor de latas ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 10.000</span>
+      <img src="images/abridor-latas.jpg" alt="Abridor de latas">
+    </div>
+    <div class="card-body">
+      <h3>Abridor de latas</h3>
+      <p class="desc">Abridor de latas práctico y fácil de usar.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Abridor%20de%20latas%20(Gs.%2010.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ############ CATEGORÍA: Decoración (data-categoria="deco") ############ -->
+
+  <!-- ===== PRODUCTO: El Pensador ===== -->
+  <div class="card" data-categoria="deco">
+    <div class="card-media">
+      <span class="price-tag">Gs. 50.000</span>
+      <img id="img-pensador" src="images/pensador-negro.jpg" alt="Figura decorativa El Pensador">
+    </div>
+    <div class="card-body">
+      <h3>Figura decorativa "El Pensador"</h3>
+      <p class="desc">Escultura de escritorio con acabado texturizado. Ideal para living, estudio u oficina.</p>
+      <div class="variants">
+        <img src="images/pensador-negro.jpg" alt="Variante negro" class="active" onclick="swapImg('img-pensador', this)">
+        <img src="images/pensador-plata.jpg" alt="Variante plateado" onclick="swapImg('img-pensador', this)">
+      </div>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20figura%20El%20Pensador%20(Gs.%2050.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Portaincienso ===== -->
+  <div class="card" data-categoria="deco">
+    <div class="card-media">
+      <span class="price-tag">Gs. 60.000</span>
+      <img id="img-inciensario" src="images/inciensario-negro-dorado.jpg" alt="Portaincienso minimalista">
+    </div>
+    <div class="card-body">
+      <h3>Portaincienso</h3>
+      <p class="desc">Diseño minimalista con bandeja recolectora de cenizas. Un lindo detalle zen para cualquier ambiente.</p>
+      <div class="variants">
+        <img src="images/inciensario-negro-dorado.jpg" alt="Negro con bandeja dorada" class="active" onclick="swapImg('img-inciensario', this)">
+        <img src="images/inciensario-negro-negro.jpg" alt="Negro con bandeja negra" onclick="swapImg('img-inciensario', this)">
+        <img src="images/inciensario-blanco.jpg" alt="Blanco con bandeja dorada" onclick="swapImg('img-inciensario', this)">
+      </div>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Portaincienso%20(Gs.%2060.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Planterita decorativa ===== -->
+  <div class="card" data-categoria="deco">
+    <div class="card-media">
+      <span class="price-tag">Gs. 30.000</span>
+      <img src="images/planterita.jpg" alt="Planterita decorativa mini de escritorio">
+    </div>
+    <div class="card-body">
+      <h3>Planterita mini de escritorio</h3>
+      <p class="desc">Maceta decorativa carita feliz, tamaño mini. Perfecta para suculentas o cactus chicos.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Planterita%20mini%20(Gs.%2030.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Portaincienso espiral ===== -->
+  <div class="card" data-categoria="deco">
+    <div class="card-media">
+      <span class="price-tag">Gs. 65.000</span>
+      <img src="images/inciensario-espiral.jpg" alt="Portaincienso espiral">
+    </div>
+    <div class="card-body">
+      <h3>Portaincienso espiral</h3>
+      <p class="desc">Diseño en espiral con base para recolectar cenizas. Una pieza decorativa para darle un ambiente relajante a cualquier espacio.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Portaincienso%20espiral%20(Gs.%2065.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Cuenco/caramelero fantasmagórico ===== -->
+  <div class="card" data-categoria="deco">
+    <div class="card-media">
+      <span class="price-tag">Gs. 95.000</span>
+      <img src="images/caramelero-fantasma.jpg" alt="Cuenco caramelero fantasmagórico">
+    </div>
+    <div class="card-body">
+      <h3>Cuenco/caramelero fantasmagórico</h3>
+      <p class="desc">Cuenco decorativo con diseño de fantasma, ideal para caramelos o como pieza decorativa en Halloween.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Cuenco%20fantasmag%C3%B3rico%20(Gs.%2095.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ############ CATEGORÍA: Gamer (data-categoria="gamer") ############ -->
+
+  <!-- ===== PRODUCTO: Soporte para controles de Play 5 (doble) ===== -->
+  <div class="card" data-categoria="gamer">
+    <div class="card-media">
+      <span class="price-tag">Gs. 50.000</span>
+      <img src="images/soporte-ps5-doble.jpg" alt="Soporte doble para controles de Play 5">
+    </div>
+    <div class="card-body">
+      <h3>Soporte para controles de Play 5</h3>
+      <p class="desc">Soporte doble para mantener tus controles de Play 5 cargando y ordenados. Diseño compacto para escritorio o mueble de TV.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Soporte%20doble%20para%20controles%20de%20Play%205%20(Gs.%2050.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Soporte para control de Play 5 (tentáculo) ===== -->
+  <div class="card" data-categoria="gamer">
+    <div class="card-media">
+      <span class="price-tag">Gs. 50.000</span>
+      <img src="images/soporte-ps5-tentaculo.jpg" alt="Soporte tentáculo para control de Play 5">
+    </div>
+    <div class="card-body">
+      <h3>Soporte para control de Play 5 (tentáculo)</h3>
+      <p class="desc">Soporte individual tipo tentáculo para mantener tu control de Play 5 apoyado y a la vista. Diseño llamativo, ideal para escritorio o mueble de TV.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Soporte%20tent%C3%A1culo%20para%20control%20de%20Play%205%20(Gs.%2050.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Soporte para control de Play 5 (diseño clásico) ===== -->
+  <div class="card" data-categoria="gamer">
+    <div class="card-media">
+      <span class="price-tag">Gs. 50.000</span>
+      <img src="images/soporte-ps5-clasico.jpg" alt="Soporte clásico para control de Play 5">
+    </div>
+    <div class="card-body">
+      <h3>Soporte para control de Play 5 (diseño clásico)</h3>
+      <p class="desc">Soporte individual para mantener tu control de Play 5 apoyado y a la vista. Diseño simple y prolijo, ideal para escritorio o mueble de TV.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Soporte%20cl%C3%A1sico%20para%20control%20de%20Play%205%20(Gs.%2050.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ############ CATEGORÍA: Religiosos y Navidad (data-categoria="religiosos") ############ -->
+
+  <!-- ===== PRODUCTO: Figura Sagrada Familia ===== -->
+  <div class="card" data-categoria="religiosos">
+    <div class="card-media">
+      <span class="price-tag">Desde Gs. 150.000</span>
+      <img src="images/figura-sagrada-familia.jpg" alt="Figura Sagrada Familia">
+    </div>
+    <div class="card-body">
+      <h3>Figura Sagrada Familia</h3>
+      <p class="desc">Escultura decorativa de la Sagrada Familia. Consultar disponibilidad de colores. Disponible en 2 tamaños: 20 cm (Gs. 150.000) y 25 cm (Gs. 250.000).</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Figura%20Sagrada%20Familia" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Figura San Miguel Arcángel ===== -->
+  <div class="card" data-categoria="religiosos">
+    <div class="card-media">
+      <span class="price-tag">Desde Gs. 35.000</span>
+      <img src="images/figura-san-miguel.jpg" alt="Figura San Miguel Arcángel">
+    </div>
+    <div class="card-body">
+      <h3>Figura San Miguel Arcángel</h3>
+      <p class="desc">Escultura decorativa de San Miguel Arcángel. Consultar disponibilidad de colores. Disponible en 3 tamaños: 15 cm (Gs. 35.000), 20 cm (Gs. 65.000) y 25 cm (Gs. 90.000).</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Figura%20San%20Miguel%20Arc%C3%A1ngel" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Figura San José y el Niño ===== -->
+  <div class="card" data-categoria="religiosos">
+    <div class="card-media">
+      <span class="price-tag">Gs. 120.000</span>
+      <img src="images/figura-san-jose.jpg" alt="Figura San José y el Niño">
+    </div>
+    <div class="card-body">
+      <h3>Figura San José y el Niño</h3>
+      <p class="desc">Escultura decorativa de San José con el Niño Jesús. Consultar disponibilidad de colores. Tamaño: 25 cm.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Figura%20San%20Jos%C3%A9%20y%20el%20Ni%C3%B1o%20(Gs.%20120.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Mini Pesebre / Nacimiento de Jesús ===== -->
+  <div class="card" data-categoria="religiosos">
+    <div class="card-media">
+      <span class="price-tag">Gs. 40.000</span>
+      <img src="images/mini-pesebre.jpg" alt="Mini Pesebre Nacimiento de Jesús">
+    </div>
+    <div class="card-body">
+      <h3>Mini Pesebre / Nacimiento de Jesús</h3>
+      <p class="desc">Pequeño Pesebre navideño. Consultar disponibilidad de colores. Tamaño: 12 cm.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Mini%20Pesebre%20(Gs.%2040.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ############ CATEGORÍA: Accesorios (data-categoria="accesorios") ############ -->
+
+  <!-- ===== PRODUCTO: Aritos de gatito ===== -->
+  <div class="card" data-categoria="accesorios">
+    <div class="card-media">
+      <span class="price-tag">Gs. 25.000</span>
+      <img src="images/aritos-gatito.jpg" alt="Aritos de gatito">
+    </div>
+    <div class="card-body">
+      <h3>Aritos de gatito</h3>
+      <p class="desc">Aritos colgantes con diseño de gatito negro, livianos y con acabado prolijo. Un accesorio tierno y diferente para el día a día.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesan%20los%20Aritos%20de%20gatito%20(Gs.%2025.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- Tarjeta de "próximamente" — podés borrarla cuando tengas más productos cargados -->
+  <div class="card placeholder">
+    <div class="plus">+</div>
+    <h3 style="font-family:'Unbounded',sans-serif;font-size:15px;">Más productos pronto</h3>
+    <p class="desc">Seguimos sumando modelos al catálogo.</p>
+  </div>
+
+</div>
+
+<!-- Script para cambiar la foto principal de un producto al tocar una miniatura -->
+<script>
+function swapImg(mainId, thumbEl){
+  document.getElementById(mainId).src = thumbEl.src;
+  var row = thumbEl.parentElement;
+  row.querySelectorAll('img').forEach(function(t){ t.classList.remove('active'); });
+  thumbEl.classList.add('active');
+}
+
+// Filtro por categoría. También funciona con links directos, por ejemplo:
+// https://jazzlab3d.netlify.app/#gamer  (sirve para compartir en Instagram)
+function filtrar(cat){
+  var ok=document.querySelector('.filtro[data-filtro="'+cat+'"]');
+  if(!ok){ cat='todos'; }
+  document.querySelectorAll('.filtro').forEach(function(b){
+    b.classList.toggle('active', b.dataset.filtro===cat);
+  });
+  document.querySelectorAll('.grid .card[data-categoria]').forEach(function(c){
+    c.classList.toggle('oculto', cat!=='todos' && c.dataset.categoria!==cat);
+  });
+}
+document.querySelectorAll('.filtro').forEach(function(b){
+  b.addEventListener('click', function(){
+    filtrar(b.dataset.filtro);
+    history.replaceState(null,'', b.dataset.filtro==='todos' ? location.pathname : '#'+b.dataset.filtro);
+  });
+});
+function filtrarDesdeLink(){
+  if(location.hash && location.hash!=='#catalogo'){
+    filtrar(location.hash.slice(1));
+    document.getElementById('catalogo').scrollIntoView();
+  }
+}
+window.addEventListener('hashchange', filtrarDesdeLink);
+filtrarDesdeLink();
+</script>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="foot-inner">
+    <div class="wordmark">JAZZ LAB 3D</div>
+    <div class="foot-links">
+      <a href="https://instagram.com/jazzlab3d" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/595986109871" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <div class="foot-bottom">Jazz Lab 3D — Creaciones impresas en 3D, Paraguay</div>
+</footer>
+
+</body>
+</html>
