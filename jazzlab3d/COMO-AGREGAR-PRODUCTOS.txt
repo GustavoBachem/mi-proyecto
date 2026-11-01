@@ -1,0 +1,35 @@
+GUÍA RÁPIDA — CÓMO AGREGAR UN PRODUCTO NUEVO AL CATÁLOGO
+==========================================================
+
+1. Abrí el archivo "index.html" con el Bloc de notas (clic derecho
+   sobre el archivo -> Abrir con -> Bloc de notas).
+
+2. Buscá (Ctrl+F) el bloque que dice:
+
+       <!-- ===== PRODUCTO: Llavero de pared ===== -->
+
+   ... hasta ...
+
+       <!-- ===== FIN PRODUCTO ===== -->
+
+3. Copiá TODO ese bloque completo (desde el primer comentario
+   hasta el último) y pegalo justo debajo, dentro del mismo
+   <div class="grid"> ... </div>
+
+4. En tu copia recién pegada, cambiá:
+     - la ruta de la imagen   ->  images/tu-foto.jpg
+     - el nombre del producto
+     - el precio
+     - el texto del mensaje de WhatsApp (la parte que dice text=...)
+
+5. Subí tu foto nueva a la carpeta "images" (mismo lugar que las
+   demás fotos), con el mismo nombre que hayas puesto en el paso 4.
+
+6. Guardá el archivo y volvé a arrastrar toda la carpeta a Netlify
+   para actualizar la página publicada.
+
+Eso es todo — no hace falta tocar nada más del archivo.
+
+IMPORTANTE: no borres los comentarios <!-- ... --> que están
+adentro del archivo index.html, son los que marcan dónde empieza
+y termina cada producto. Sí podés dejarlos tal cual.
