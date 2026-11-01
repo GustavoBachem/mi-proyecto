@@ -48,7 +48,7 @@ OPCIÓN MANUAL
        deco        -> Decoración
        gamer       -> Gamer
        religiosos  -> Religiosos y Navidad
-       accesorios  -> Accesorios
+       joyeria     -> Joyería 3D
 
 5. Subí tu foto nueva a la carpeta "images" (mismo lugar que las
    demás fotos), con el mismo nombre que hayas puesto en el paso 4.
@@ -72,7 +72,7 @@ LINKS DIRECTOS A UNA CATEGORÍA (para Instagram o WhatsApp)
    https://jazzlab3d.netlify.app/#religiosos
    https://jazzlab3d.netlify.app/#deco
    https://jazzlab3d.netlify.app/#hogar
-   https://jazzlab3d.netlify.app/#accesorios
+   https://jazzlab3d.netlify.app/#joyeria
 
 
 IMPORTANTE: no borres los comentarios <!-- ... --> que están
