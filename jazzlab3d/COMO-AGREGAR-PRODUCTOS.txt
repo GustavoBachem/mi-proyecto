@@ -1,35 +1,80 @@
 GUÍA RÁPIDA — CÓMO AGREGAR UN PRODUCTO NUEVO AL CATÁLOGO
 ==========================================================
 
+OPCIÓN FÁCIL: mandale a Claude la foto + nombre + precio + categoría
+(y una frase corta si querés). Te devuelve el catálogo listo para subir.
+
+
+OPCIÓN MANUAL
+-------------
+
 1. Abrí el archivo "index.html" con el Bloc de notas (clic derecho
    sobre el archivo -> Abrir con -> Bloc de notas).
 
-2. Buscá (Ctrl+F) el bloque que dice:
+2. Los productos están agrupados por categoría. Cada grupo empieza
+   con una línea así:
 
-       <!-- ===== PRODUCTO: Llavero de pared ===== -->
+       <!-- ############ CATEGORÍA: Decoración (data-categoria="deco") ############ -->
 
-   ... hasta ...
+   Buscá (Ctrl+F) la categoría donde va tu producto nuevo.
+
+3. Dentro de esa categoría, copiá un producto completo: desde
+
+       <!-- ===== PRODUCTO: ... ===== -->
+
+   hasta
 
        <!-- ===== FIN PRODUCTO ===== -->
 
-3. Copiá TODO ese bloque completo (desde el primer comentario
-   hasta el último) y pegalo justo debajo, dentro del mismo
-   <div class="grid"> ... </div>
+   y pegalo justo debajo.
 
 4. En tu copia recién pegada, cambiá:
+     - el nombre del comentario (PRODUCTO: ...)
      - la ruta de la imagen   ->  images/tu-foto.jpg
-     - el nombre del producto
-     - el precio
+     - el nombre del producto (entre <h3> y </h3>)
+     - la descripción (entre <p class="desc"> y </p>)
+     - el precio (en la etiqueta "Gs. ...")
      - el texto del mensaje de WhatsApp (la parte que dice text=...)
+       Los espacios se escriben %20. Ejemplo:
+       text=Hola!%20Me%20interesa%20el%20Llavero%20(Gs.%2020.000)
+
+   La categoría ya queda bien porque copiaste un producto de la misma
+   categoría. Está en la primera línea del producto:
+
+       <div class="card" data-categoria="deco">
+
+   Las categorías que existen son:
+       hogar       -> Hogar y organización
+       deco        -> Decoración
+       gamer       -> Gamer
+       religiosos  -> Religiosos y Navidad
+       accesorios  -> Accesorios
 
 5. Subí tu foto nueva a la carpeta "images" (mismo lugar que las
    demás fotos), con el mismo nombre que hayas puesto en el paso 4.
+   Conviene que la foto sea vertical (3:4) para que no se recorte.
 
 6. Guardá el archivo y volvé a arrastrar toda la carpeta a Netlify
    para actualizar la página publicada.
 
-Eso es todo — no hace falta tocar nada más del archivo.
+
+CREAR UNA CATEGORÍA NUEVA
+-------------------------
+1. Buscá (Ctrl+F) "Botones de categorías". Copiá un botón, por ejemplo:
+       <button class="filtro" data-filtro="gamer">Gamer</button>
+   y cambiá data-filtro (sin espacios ni tildes, ej: "cocina") y el nombre.
+2. En los productos de esa categoría poné data-categoria="cocina".
+
+
+LINKS DIRECTOS A UNA CATEGORÍA (para Instagram o WhatsApp)
+----------------------------------------------------------
+   https://jazzlab3d.netlify.app/#gamer
+   https://jazzlab3d.netlify.app/#religiosos
+   https://jazzlab3d.netlify.app/#deco
+   https://jazzlab3d.netlify.app/#hogar
+   https://jazzlab3d.netlify.app/#accesorios
+
 
 IMPORTANTE: no borres los comentarios <!-- ... --> que están
 adentro del archivo index.html, son los que marcan dónde empieza
-y termina cada producto. Sí podés dejarlos tal cual.
+y termina cada producto y cada categoría.

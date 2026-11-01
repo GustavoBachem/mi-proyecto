@@ -315,6 +315,34 @@
     color:var(--steel);
   }
 
+  /* ---------- FILTROS POR CATEGORÍA ---------- */
+  .filtros{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 6vw;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .filtro{
+    font:600 13px 'Inter',sans-serif;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    cursor:pointer;
+    transition:background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .filtro:hover{border-color:var(--magenta);}
+  .filtro.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .card.oculto{display:none;}
+  @media (max-width:600px){
+    .filtros{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:6px;-webkit-overflow-scrolling:touch;}
+    .filtro{flex:0 0 auto;}
+  }
+
   /* ---------- FOOTER ---------- */
   footer{
     background:var(--ink);
@@ -393,10 +421,22 @@
   <p>Cada pieza se imprime bajo pedido. Elegí el modelo que te guste y coordiná tu compra directo por WhatsApp.</p>
 </div>
 
+<!-- Botones de categorías. Para crear una categoría nueva, copiá un botón y cambiá data-filtro y el nombre. -->
+<div class="filtros" id="filtros">
+  <button class="filtro active" data-filtro="todos">Todos</button>
+  <button class="filtro" data-filtro="hogar">Hogar y organización</button>
+  <button class="filtro" data-filtro="deco">Decoración</button>
+  <button class="filtro" data-filtro="gamer">Gamer</button>
+  <button class="filtro" data-filtro="religiosos">Religiosos y Navidad</button>
+  <button class="filtro" data-filtro="accesorios">Accesorios</button>
+</div>
+
 <div class="grid">
 
+  <!-- ############ CATEGORÍA: Hogar y organización (data-categoria="hogar") ############ -->
+
   <!-- ===== PRODUCTO: Soporte para casco ===== -->
-  <div class="card">
+  <div class="card" data-categoria="hogar">
     <div class="card-media">
       <span class="price-tag">Gs. 70.000</span>
       <img id="img-casco" src="images/soporte-casco-main.jpg" alt="Soporte para casco con gancho multiuso">
@@ -414,7 +454,7 @@
   <!-- ===== FIN PRODUCTO ===== -->
 
   <!-- ===== PRODUCTO: Organizador de pared ===== -->
-  <div class="card">
+  <div class="card" data-categoria="hogar">
     <div class="card-media">
       <span class="price-tag">Gs. 60.000</span>
       <img src="images/llavero-pared.jpg" alt="Organizador de pared con ganchos para llaves">
@@ -427,8 +467,66 @@
   </div>
   <!-- ===== FIN PRODUCTO ===== -->
 
+  <!-- ===== PRODUCTO: Organizador para controles ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 60.000</span>
+      <img src="images/organizador-controles.jpg" alt="Organizador para controles remotos">
+    </div>
+    <div class="card-body">
+      <h3>Organizador para controles</h3>
+      <p class="desc">Mantené a mano todos los controles remotos de tu living, ordenados en un solo lugar.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Organizador%20de%20controles%20(Gs.%2060.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Organizador de pastillas ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 25.000</span>
+      <img src="images/organizador-pastillas.jpg" alt="Organizador de pastillas">
+    </div>
+    <div class="card-body">
+      <h3>Organizador de pastillas</h3>
+      <p class="desc">Estuche compacto con 4 compartimentos, ideal para organizar tu medicación diaria o de viaje. Tapa con cierre seguro.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Organizador%20de%20pastillas%20(Gs.%2025.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Soporte para esponja ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 32.000</span>
+      <img src="images/soporte-esponja.jpg" alt="Soporte para esponja de cocina">
+    </div>
+    <div class="card-body">
+      <h3>Soporte para esponja</h3>
+      <p class="desc">Soporte para esponja, para darle un toque divertido a tu cocina.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Soporte%20para%20esponja%20(Gs.%2032.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Abridor de latas ===== -->
+  <div class="card" data-categoria="hogar">
+    <div class="card-media">
+      <span class="price-tag">Gs. 10.000</span>
+      <img src="images/abridor-latas.jpg" alt="Abridor de latas">
+    </div>
+    <div class="card-body">
+      <h3>Abridor de latas</h3>
+      <p class="desc">Abridor de latas práctico y fácil de usar.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Abridor%20de%20latas%20(Gs.%2010.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ############ CATEGORÍA: Decoración (data-categoria="deco") ############ -->
+
   <!-- ===== PRODUCTO: El Pensador ===== -->
-  <div class="card">
+  <div class="card" data-categoria="deco">
     <div class="card-media">
       <span class="price-tag">Gs. 50.000</span>
       <img id="img-pensador" src="images/pensador-negro.jpg" alt="Figura decorativa El Pensador">
@@ -446,7 +544,7 @@
   <!-- ===== FIN PRODUCTO ===== -->
 
   <!-- ===== PRODUCTO: Portaincienso ===== -->
-  <div class="card">
+  <div class="card" data-categoria="deco">
     <div class="card-media">
       <span class="price-tag">Gs. 60.000</span>
       <img id="img-inciensario" src="images/inciensario-negro-dorado.jpg" alt="Portaincienso minimalista">
@@ -465,7 +563,7 @@
   <!-- ===== FIN PRODUCTO ===== -->
 
   <!-- ===== PRODUCTO: Planterita decorativa ===== -->
-  <div class="card">
+  <div class="card" data-categoria="deco">
     <div class="card-media">
       <span class="price-tag">Gs. 30.000</span>
       <img src="images/planterita.jpg" alt="Planterita decorativa mini de escritorio">
@@ -478,22 +576,8 @@
   </div>
   <!-- ===== FIN PRODUCTO ===== -->
 
-  <!-- ===== PRODUCTO: Organizador para controles ===== -->
-  <div class="card">
-    <div class="card-media">
-      <span class="price-tag">Gs. 60.000</span>
-      <img src="images/organizador-controles.jpg" alt="Organizador para controles remotos">
-    </div>
-    <div class="card-body">
-      <h3>Organizador para controles</h3>
-      <p class="desc">Mantené a mano todos los controles remotos de tu living, ordenados en un solo lugar.</p>
-      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Organizador%20de%20controles%20(Gs.%2060.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-    </div>
-  </div>
-  <!-- ===== FIN PRODUCTO ===== -->
-
   <!-- ===== PRODUCTO: Portaincienso espiral ===== -->
-  <div class="card">
+  <div class="card" data-categoria="deco">
     <div class="card-media">
       <span class="price-tag">Gs. 65.000</span>
       <img src="images/inciensario-espiral.jpg" alt="Portaincienso espiral">
@@ -506,92 +590,24 @@
   </div>
   <!-- ===== FIN PRODUCTO ===== -->
 
-  <!-- ===== PRODUCTO: Organizador de pastillas ===== -->
-  <div class="card">
+  <!-- ===== PRODUCTO: Cuenco/caramelero fantasmagórico ===== -->
+  <div class="card" data-categoria="deco">
     <div class="card-media">
-      <span class="price-tag">Gs. 25.000</span>
-      <img src="images/organizador-pastillas.jpg" alt="Organizador de pastillas">
+      <span class="price-tag">Gs. 95.000</span>
+      <img src="images/caramelero-fantasma.jpg" alt="Cuenco caramelero fantasmagórico">
     </div>
     <div class="card-body">
-      <h3>Organizador de pastillas</h3>
-      <p class="desc">Estuche compacto con 4 compartimentos, ideal para organizar tu medicación diaria o de viaje. Tapa con cierre seguro.</p>
-      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Organizador%20de%20pastillas%20(Gs.%2025.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      <h3>Cuenco/caramelero fantasmagórico</h3>
+      <p class="desc">Cuenco decorativo con diseño de fantasma, ideal para caramelos o como pieza decorativa en Halloween.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Cuenco%20fantasmag%C3%B3rico%20(Gs.%2095.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
     </div>
   </div>
   <!-- ===== FIN PRODUCTO ===== -->
 
-  <!-- ===== PRODUCTO: Soporte para esponja ===== -->
-  <div class="card">
-    <div class="card-media">
-      <span class="price-tag">Gs. 32.000</span>
-      <img src="images/soporte-esponja.jpg" alt="Soporte para esponja de cocina">
-    </div>
-    <div class="card-body">
-      <h3>Soporte para esponja</h3>
-      <p class="desc">Soporte para esponja, para darle un toque divertido a tu cocina.</p>
-      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Soporte%20para%20esponja%20(Gs.%2032.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-    </div>
-  </div>
-  <!-- ===== FIN PRODUCTO ===== -->
-
-  <!-- ===== PRODUCTO: Aritos de gatito ===== -->
-  <div class="card">
-    <div class="card-media">
-      <span class="price-tag">Gs. 25.000</span>
-      <img src="images/aritos-gatito.jpg" alt="Aritos de gatito">
-    </div>
-    <div class="card-body">
-      <h3>Aritos de gatito</h3>
-      <p class="desc">Aritos colgantes con diseño de gatito negro, livianos y con acabado prolijo. Un accesorio tierno y diferente para el día a día.</p>
-      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesan%20los%20Aritos%20de%20gatito%20(Gs.%2025.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-    </div>
-  </div>
-  <!-- ===== FIN PRODUCTO ===== -->
-
-  <!-- ===== PRODUCTO: Figura Sagrada Familia ===== -->
-  <div class="card">
-    <div class="card-media">
-      <span class="price-tag">Desde Gs. 150.000</span>
-      <img src="images/figura-sagrada-familia.jpg" alt="Figura Sagrada Familia">
-    </div>
-    <div class="card-body">
-      <h3>Figura Sagrada Familia</h3>
-      <p class="desc">Escultura decorativa de la Sagrada Familia. Consultar disponibilidad de colores. Disponible en 2 tamaños: 20 cm (Gs. 150.000) y 25 cm (Gs. 250.000).</p>
-      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Figura%20Sagrada%20Familia" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-    </div>
-  </div>
-  <!-- ===== FIN PRODUCTO ===== -->
-
-  <!-- ===== PRODUCTO: Figura San Miguel Arcángel ===== -->
-  <div class="card">
-    <div class="card-media">
-      <span class="price-tag">Desde Gs. 35.000</span>
-      <img src="images/figura-san-miguel.jpg" alt="Figura San Miguel Arcángel">
-    </div>
-    <div class="card-body">
-      <h3>Figura San Miguel Arcángel</h3>
-      <p class="desc">Escultura decorativa de San Miguel Arcángel. Consultar disponibilidad de colores. Disponible en 3 tamaños: 15 cm (Gs. 35.000), 20 cm (Gs. 65.000) y 25 cm (Gs. 90.000).</p>
-      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Figura%20San%20Miguel%20Arc%C3%A1ngel" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-    </div>
-  </div>
-  <!-- ===== FIN PRODUCTO ===== -->
-
-  <!-- ===== PRODUCTO: Figura San José y el Niño ===== -->
-  <div class="card">
-    <div class="card-media">
-      <span class="price-tag">Gs. 120.000</span>
-      <img src="images/figura-san-jose.jpg" alt="Figura San José y el Niño">
-    </div>
-    <div class="card-body">
-      <h3>Figura San José y el Niño</h3>
-      <p class="desc">Escultura decorativa de San José con el Niño Jesús. Consultar disponibilidad de colores. Tamaño: 25 cm.</p>
-      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Figura%20San%20Jos%C3%A9%20y%20el%20Ni%C3%B1o%20(Gs.%20120.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-    </div>
-  </div>
-  <!-- ===== FIN PRODUCTO ===== -->
+  <!-- ############ CATEGORÍA: Gamer (data-categoria="gamer") ############ -->
 
   <!-- ===== PRODUCTO: Soporte para controles de Play 5 (doble) ===== -->
-  <div class="card">
+  <div class="card" data-categoria="gamer">
     <div class="card-media">
       <span class="price-tag">Gs. 50.000</span>
       <img src="images/soporte-ps5-doble.jpg" alt="Soporte doble para controles de Play 5">
@@ -605,7 +621,7 @@
   <!-- ===== FIN PRODUCTO ===== -->
 
   <!-- ===== PRODUCTO: Soporte para control de Play 5 (tentáculo) ===== -->
-  <div class="card">
+  <div class="card" data-categoria="gamer">
     <div class="card-media">
       <span class="price-tag">Gs. 50.000</span>
       <img src="images/soporte-ps5-tentaculo.jpg" alt="Soporte tentáculo para control de Play 5">
@@ -619,7 +635,7 @@
   <!-- ===== FIN PRODUCTO ===== -->
 
   <!-- ===== PRODUCTO: Soporte para control de Play 5 (diseño clásico) ===== -->
-  <div class="card">
+  <div class="card" data-categoria="gamer">
     <div class="card-media">
       <span class="price-tag">Gs. 50.000</span>
       <img src="images/soporte-ps5-clasico.jpg" alt="Soporte clásico para control de Play 5">
@@ -632,8 +648,52 @@
   </div>
   <!-- ===== FIN PRODUCTO ===== -->
 
+  <!-- ############ CATEGORÍA: Religiosos y Navidad (data-categoria="religiosos") ############ -->
+
+  <!-- ===== PRODUCTO: Figura Sagrada Familia ===== -->
+  <div class="card" data-categoria="religiosos">
+    <div class="card-media">
+      <span class="price-tag">Desde Gs. 150.000</span>
+      <img src="images/figura-sagrada-familia.jpg" alt="Figura Sagrada Familia">
+    </div>
+    <div class="card-body">
+      <h3>Figura Sagrada Familia</h3>
+      <p class="desc">Escultura decorativa de la Sagrada Familia. Consultar disponibilidad de colores. Disponible en 2 tamaños: 20 cm (Gs. 150.000) y 25 cm (Gs. 250.000).</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Figura%20Sagrada%20Familia" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Figura San Miguel Arcángel ===== -->
+  <div class="card" data-categoria="religiosos">
+    <div class="card-media">
+      <span class="price-tag">Desde Gs. 35.000</span>
+      <img src="images/figura-san-miguel.jpg" alt="Figura San Miguel Arcángel">
+    </div>
+    <div class="card-body">
+      <h3>Figura San Miguel Arcángel</h3>
+      <p class="desc">Escultura decorativa de San Miguel Arcángel. Consultar disponibilidad de colores. Disponible en 3 tamaños: 15 cm (Gs. 35.000), 20 cm (Gs. 65.000) y 25 cm (Gs. 90.000).</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Figura%20San%20Miguel%20Arc%C3%A1ngel" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
+  <!-- ===== PRODUCTO: Figura San José y el Niño ===== -->
+  <div class="card" data-categoria="religiosos">
+    <div class="card-media">
+      <span class="price-tag">Gs. 120.000</span>
+      <img src="images/figura-san-jose.jpg" alt="Figura San José y el Niño">
+    </div>
+    <div class="card-body">
+      <h3>Figura San José y el Niño</h3>
+      <p class="desc">Escultura decorativa de San José con el Niño Jesús. Consultar disponibilidad de colores. Tamaño: 25 cm.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20la%20Figura%20San%20Jos%C3%A9%20y%20el%20Ni%C3%B1o%20(Gs.%20120.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- ===== FIN PRODUCTO ===== -->
+
   <!-- ===== PRODUCTO: Mini Pesebre / Nacimiento de Jesús ===== -->
-  <div class="card">
+  <div class="card" data-categoria="religiosos">
     <div class="card-media">
       <span class="price-tag">Gs. 40.000</span>
       <img src="images/mini-pesebre.jpg" alt="Mini Pesebre Nacimiento de Jesús">
@@ -646,30 +706,18 @@
   </div>
   <!-- ===== FIN PRODUCTO ===== -->
 
-  <!-- ===== PRODUCTO: Abridor de latas ===== -->
-  <div class="card">
-    <div class="card-media">
-      <span class="price-tag">Gs. 10.000</span>
-      <img src="images/abridor-latas.jpg" alt="Abridor de latas">
-    </div>
-    <div class="card-body">
-      <h3>Abridor de latas</h3>
-      <p class="desc">Abridor de latas práctico y fácil de usar.</p>
-      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Abridor%20de%20latas%20(Gs.%2010.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-    </div>
-  </div>
-  <!-- ===== FIN PRODUCTO ===== -->
+  <!-- ############ CATEGORÍA: Accesorios (data-categoria="accesorios") ############ -->
 
-  <!-- ===== PRODUCTO: Cuenco/caramelero fantasmagórico ===== -->
-  <div class="card">
+  <!-- ===== PRODUCTO: Aritos de gatito ===== -->
+  <div class="card" data-categoria="accesorios">
     <div class="card-media">
-      <span class="price-tag">Gs. 95.000</span>
-      <img src="images/caramelero-fantasma.jpg" alt="Cuenco caramelero fantasmagórico">
+      <span class="price-tag">Gs. 25.000</span>
+      <img src="images/aritos-gatito.jpg" alt="Aritos de gatito">
     </div>
     <div class="card-body">
-      <h3>Cuenco/caramelero fantasmagórico</h3>
-      <p class="desc">Cuenco decorativo con diseño de fantasma, ideal para caramelos o como pieza decorativa en Halloween.</p>
-      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesa%20el%20Cuenco%20fantasmag%C3%B3rico%20(Gs.%2095.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      <h3>Aritos de gatito</h3>
+      <p class="desc">Aritos colgantes con diseño de gatito negro, livianos y con acabado prolijo. Un accesorio tierno y diferente para el día a día.</p>
+      <a class="card-cta" href="https://wa.me/595986109871?text=Hola!%20Me%20interesan%20los%20Aritos%20de%20gatito%20(Gs.%2025.000)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
     </div>
   </div>
   <!-- ===== FIN PRODUCTO ===== -->
@@ -691,6 +739,33 @@ function swapImg(mainId, thumbEl){
   row.querySelectorAll('img').forEach(function(t){ t.classList.remove('active'); });
   thumbEl.classList.add('active');
 }
+
+// Filtro por categoría. También funciona con links directos, por ejemplo:
+// https://jazzlab3d.netlify.app/#gamer  (sirve para compartir en Instagram)
+function filtrar(cat){
+  var ok=document.querySelector('.filtro[data-filtro="'+cat+'"]');
+  if(!ok){ cat='todos'; }
+  document.querySelectorAll('.filtro').forEach(function(b){
+    b.classList.toggle('active', b.dataset.filtro===cat);
+  });
+  document.querySelectorAll('.grid .card[data-categoria]').forEach(function(c){
+    c.classList.toggle('oculto', cat!=='todos' && c.dataset.categoria!==cat);
+  });
+}
+document.querySelectorAll('.filtro').forEach(function(b){
+  b.addEventListener('click', function(){
+    filtrar(b.dataset.filtro);
+    history.replaceState(null,'', b.dataset.filtro==='todos' ? location.pathname : '#'+b.dataset.filtro);
+  });
+});
+function filtrarDesdeLink(){
+  if(location.hash && location.hash!=='#catalogo'){
+    filtrar(location.hash.slice(1));
+    document.getElementById('catalogo').scrollIntoView();
+  }
+}
+window.addEventListener('hashchange', filtrarDesdeLink);
+filtrarDesdeLink();
 </script>
 
 <!-- ================= FOOTER ================= -->
