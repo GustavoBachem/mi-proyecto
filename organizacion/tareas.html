@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi día y pendientes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: una columna tipo libreta; arriba la rutina de hoy por horario, abajo los pendientes por área. */
+  --bg:#f3f5f9; --surface:#ffffff; --ink:#18202e; --muted:#5b6577; --line:#dfe3ec;
+  --accent:#2f56d9; --accent-soft:#e6ecfc; --done:#1f8a5b; --warn:#b4540f;
+  --c-pedidos:#1f8a5b; --c-redes:#c0367a; --c-productos:#7a4fd0; --c-ads:#2f56d9; --c-personal:#b4540f; --c-general:#5b6577;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11151d; --surface:#1a202b; --ink:#e8ecf3; --muted:#9aa4b5; --line:#2b3342;
+    --accent:#7d9bff; --accent-soft:#232d48; --done:#4cc28c; --warn:#f0a163;
+    --c-pedidos:#4cc28c; --c-redes:#ef7fb4; --c-productos:#b39bff; --c-ads:#7d9bff; --c-personal:#f0a163; --c-general:#9aa4b5;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11151d; --surface:#1a202b; --ink:#e8ecf3; --muted:#9aa4b5; --line:#2b3342;
+  --accent:#7d9bff; --accent-soft:#232d48; --done:#4cc28c; --warn:#f0a163;
+  --c-pedidos:#4cc28c; --c-redes:#ef7fb4; --c-productos:#b39bff; --c-ads:#7d9bff; --c-personal:#f0a163; --c-general:#9aa4b5;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.45 var(--body)}
+.wrap{max-width:680px;margin:0 auto;padding:20px 16px 48px;display:grid;gap:22px}
+h1,h2{font-family:var(--display);margin:0;text-wrap:balance;line-height:1.1}
+h1{font-size:30px}
+h2{font-size:20px}
+.top{display:grid;gap:12px}
+.date{color:var(--muted);font-weight:500}
+.date::first-letter{text-transform:uppercase}
+.progress{display:flex;align-items:center;gap:12px}
+.bar{flex:1;height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--done);border-radius:99px;transition:width .3s}
+.count{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.sect{display:grid;gap:10px}
+.sect-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hint{color:var(--muted);font-size:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.blocks{display:grid}
+.block{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:12px 14px;border-top:1px solid var(--line);position:relative}
+.block:first-child{border-top:0}
+.block.now{background:var(--accent-soft)}
+.block.now::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);border-radius:12px 0 0 12px}
+.time{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:600;font-size:14px;padding-top:2px}
+.block-main{display:grid;gap:6px;min-width:0}
+.row{display:flex;align-items:flex-start;gap:10px}
+.row label{flex:1;min-width:0;cursor:pointer}
+.title{font-weight:600}
+.desc{color:var(--muted);font-size:14px}
+.pill{font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--accent);color:var(--surface);white-space:nowrap}
+input[type=checkbox]{appearance:none;width:22px;height:22px;flex:none;margin:1px 0 0;border:2px solid var(--muted);border-radius:6px;cursor:pointer;display:grid;place-content:center;background:var(--surface)}
+input[type=checkbox]:checked{background:var(--done);border-color:var(--done)}
+input[type=checkbox]:checked::after{content:"";width:6px;height:11px;border:solid var(--surface);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.is-done .title,.is-done .ttext{text-decoration:line-through;color:var(--muted)}
+.linked{display:grid;gap:4px;margin-top:2px;padding-left:10px;border-left:2px solid var(--line)}
+.linked .row{font-size:14px}
+.linked input[type=checkbox]{width:18px;height:18px}
+.linked input[type=checkbox]:checked::after{width:5px;height:9px}
+form.add{display:grid;grid-template-columns:1fr auto;gap:8px;padding:12px}
+.add .opts{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text],select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+select{padding:8px 10px}
+.toggle{display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer}
+button{font:inherit;font-weight:600;cursor:pointer;border-radius:8px;border:1px solid transparent;padding:10px 16px}
+.primary{background:var(--accent);color:var(--surface)}
+.ghost{background:transparent;color:var(--muted);border-color:var(--line);padding:6px 12px;font-size:14px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--line);color:var(--ink);padding:6px 12px;border-radius:99px;font-size:14px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tasks{display:grid}
+.group-label{font-size:13px;font-weight:600;color:var(--muted);padding:10px 14px 4px;text-transform:uppercase;letter-spacing:.04em}
+.task{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-top:1px solid var(--line)}
+.group-label + .task{border-top:0}
+.task .body{flex:1;min-width:0;display:grid;gap:3px}
+.ttext{overflow-wrap:anywhere}
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.cat{display:inline-flex;align-items:center;gap:5px;font-weight:600}
+.cat::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cc)}
+.today-tag{color:var(--warn);font-weight:600}
+.icon{background:none;border:0;padding:4px 6px;color:var(--muted);font-size:13px;font-weight:500}
+.icon:hover{color:var(--ink)}
+.empty{padding:16px 14px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:420px){ .block{grid-template-columns:52px 1fr;gap:10px} h1{font-size:26px} form.add{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <h1>Mi día</h1>
+    <div class="date" id="date"></div>
+    <div class="progress">
+      <div class="bar" aria-hidden="true"><i id="bar" style="width:0"></i></div>
+      <span class="count" id="count">0 de 0 hechas hoy</span>
+    </div>
+  </header>
+
+  <section class="sect" aria-labelledby="h-rutina">
+    <div class="sect-head">
+      <h2 id="h-rutina">Rutina de hoy</h2>
+      <span class="hint">Se reinicia sola cada mañana</span>
+    </div>
+    <div class="card blocks" id="blocks"></div>
+  </section>
+
+  <section class="sect" aria-labelledby="h-pend">
+    <div class="sect-head">
+      <h2 id="h-pend">Pendientes</h2>
+      <span class="hint" id="pend-count"></span>
+    </div>
+    <form class="card add" id="add">
+      <input type="text" id="new-text" placeholder="Nueva tarea, por ejemplo: pedir fundas MagSafe" autocomplete="off" aria-label="Nueva tarea">
+      <button class="primary" type="submit">Agregar</button>
+      <div class="opts">
+        <select id="new-cat" aria-label="Área"></select>
+        <label class="toggle" for="new-today"><input type="checkbox" id="new-today"> Para hoy</label>
+      </div>
+    </form>
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por área"></div>
+    <div class="card tasks" id="tasks"></div>
+    <div><button class="ghost" type="button" id="clear-done">Borrar las hechas</button></div>
+  </section>
+
+  <footer class="foot">
+    <span id="save-state">Cargando…</span>
+    <span>Tip: marcá “Para hoy” solo 3 tareas por día.</span>
+  </footer>
+</main>
+
+<script>
+(function(){
+const CATS = {
+  pedidos:{name:"Pedidos y WhatsApp", color:"var(--c-pedidos)"},
+  redes:{name:"Redes", color:"var(--c-redes)"},
+  productos:{name:"Productos y 3D", color:"var(--c-productos)"},
+  ads:{name:"Meta Ads", color:"var(--c-ads)"},
+  personal:{name:"Personal", color:"var(--c-personal)"},
+  general:{name:"General", color:"var(--c-general)"}
+};
+// days: 0=domingo ... 6=sábado
+const ALL=[0,1,2,3,4,5,6], LS=[1,2,3,4,5,6], LV=[1,2,3,4,5];
+const ROUTINE = [
+  {id:"plan", start:"07:30", end:"07:45", title:"Planificar el día", desc:"Marcá “Para hoy” en tus 3 prioridades.", days:ALL, cat:"general"},
+  {id:"ped1", start:"08:30", end:"09:30", title:"Pedidos y WhatsApp", desc:"Responder consultas y anotar pedidos nuevos.", days:LS, cat:"pedidos"},
+  {id:"prod", start:"10:00", end:"11:30", title:"Productos, catálogo y 3D", desc:"Elegí una tarea y terminala.", days:LV, cat:"productos"},
+  {id:"alm", start:"12:30", end:"13:30", title:"Almuerzo y descanso", desc:"Pausa real, sin celular de trabajo.", days:ALL, cat:null},
+  {id:"redes", start:"14:00", end:"15:00", title:"Redes: publicar contenido", desc:"1 post o reel + historias. Responder comentarios.", days:LS, cat:"redes"},
+  {id:"ped2", start:"16:00", end:"16:45", title:"Pedidos y envíos", desc:"Preparar y despachar pedidos, confirmar pagos.", days:LS, cat:"pedidos"},
+  {id:"ads", start:"17:00", end:"17:20", title:"Revisar Meta Ads", desc:"Gasto y resultados de ayer.", days:LV, cat:"ads"},
+  {id:"pers", start:"18:30", end:"19:30", title:"Tiempo personal", desc:"Ejercicio, casa o familia.", days:ALL, cat:"personal"},
+  {id:"cierre", start:"21:00", end:"21:15", title:"Cierre del día", desc:"¿Qué terminé? Elegí las 3 prioridades de mañana.", days:ALL, cat:null},
+  {id:"semana", start:"18:00", end:"18:30", title:"Planificación semanal", desc:"Repasar ventas, contenido, stock y pendientes.", days:[0], cat:"general"}
+];
+const STARTER = [
+  ["Poner el número de WhatsApp real y el Instagram en la configuración de la web","productos"],
+  ["Recuperar el dominio en NIC.py y publicar la web en Cloudflare Pages","productos"],
+  ["Importar la plantilla del catálogo a Google Sheets","productos"],
+  ["Sacar fotos de los productos (una por color)","productos"],
+  ["Cargar precios reales y apagar el modo demo","productos"],
+  ["Crear el Píxel de Meta y pegar el ID en la web","ads"],
+  ["Configurar WhatsApp Business: bienvenida, ausencia y respuestas rápidas","pedidos"]
+];
+
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2,"0");
+const todayKey = () => { const d=new Date(); return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); };
+const uid = () => Math.random().toString(36).slice(2,10)+Date.now().toString(36);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+let state = null;      // {tasks:[{id,text,cat,today,todayDate,done,doneAt,created}], routine:{date,done:[]}}
+let filter = "todas";
+let ref = null;        // db doc ref
+let useLocal = false;
+const LKEY = "mi-dia-v1";
+
+function freshState(){
+  return { tasks: STARTER.map(([text,cat],i)=>({id:uid(),text,cat,today:false,todayDate:"",done:false,doneAt:"",created:Date.now()+i})),
+           routine:{date:todayKey(), done:[]} };
+}
+function normalize(s){
+  if(!s || !Array.isArray(s.tasks)) return freshState();
+  const t = todayKey();
+  const out = { tasks: s.tasks.filter(x=>x && typeof x.text==="string").map(x=>({
+      id:String(x.id||uid()), text:x.text, cat:CATS[x.cat]?x.cat:"general",
+      today: !!x.today && x.todayDate===t, todayDate: x.todayDate||"",
+      done:!!x.done, doneAt:x.doneAt||"", created:x.created||0 })),
+    routine: (s.routine && s.routine.date===t && Array.isArray(s.routine.done)) ? {date:t, done:s.routine.done.slice()} : {date:t, done:[]} };
+  return out;
+}
+
+// ---------- saving ----------
+let saving = false, dirty = false;
+function setSaveText(txt){ $("save-state").textContent = txt; }
+async function save(){
+  if(useLocal || !ref){
+    try{ localStorage.setItem(LKEY, JSON.stringify(state)); setSaveText("Guardado en este dispositivo"); }
+    catch(e){ setSaveText("No se pudo guardar en este navegador"); }
+    return;
+  }
+  if(saving){ dirty = true; return; }
+  saving = true; setSaveText("Guardando…");
+  try{ await ref.set(JSON.parse(JSON.stringify(state))); setSaveText("Guardado en tu cuenta"); }
+  catch(e){
+    if(e && e.code==="unavailable"){ try{ await new Promise(r=>setTimeout(r,800+Math.random()*800)); await ref.set(JSON.parse(JSON.stringify(state))); setSaveText("Guardado en tu cuenta"); }catch(_){ setSaveText("No se pudo guardar. Revisá tu conexión."); } }
+    else { setSaveText("No se pudo guardar en tu cuenta"); }
+  }
+  saving = false;
+  if(dirty){ dirty = false; save(); }
+}
+let saveTimer = null;
+function change(){ render(); clearTimeout(saveTimer); saveTimer = setTimeout(save, 500); }
+
+// ---------- render ----------
+function nowMinutes(){ const d=new Date(); return d.getHours()*60+d.getMinutes(); }
+const toMin = s => { const [h,m]=s.split(":").map(Number); return h*60+m; };
+function todaysBlocks(){
+  const dow = new Date().getDay();
+  return ROUTINE.filter(b=>b.days.includes(dow)).sort((a,b)=>toMin(a.start)-toMin(b.start));
+}
+function currentBlockId(blocks){
+  const n = nowMinutes(); let cur = null;
+  for(const b of blocks){ if(toMin(b.start) <= n) cur = b; }
+  return cur ? cur.id : null;
+}
+function taskRow(t, compact){
+  const c = CATS[t.cat];
+  return `<div class="row ${t.done?"is-done":""}">
+    <input type="checkbox" id="t-${esc(t.id)}${compact?"-l":""}" data-task="${esc(t.id)}" ${t.done?"checked":""}>
+    <label for="t-${esc(t.id)}${compact?"-l":""}"><span class="ttext">${esc(t.text)}</span>${compact?"":""}</label>
+  </div>`;
+}
+function render(){
+  if(!state) return;
+  const blocks = todaysBlocks();
+  const cur = currentBlockId(blocks);
+  const pending = state.tasks.filter(t=>!t.done);
+
+  $("date").textContent = new Date().toLocaleDateString("es-PY",{weekday:"long", day:"numeric", month:"long"});
+
+  $("blocks").innerHTML = blocks.map(b=>{
+    const done = state.routine.done.includes(b.id);
+    const linked = b.cat ? pending.filter(t=>t.cat===b.cat && (b.cat!=="general" || t.today)).sort((a,z)=>(z.today-a.today)||(a.created-z.created)).slice(0,3) : [];
+    const todayList = (b.id==="plan"||b.id==="cierre") ? [] : linked;
+    return `<div class="block ${b.id===cur?"now":""}">
+      <div class="time">${b.start}</div>
+      <div class="block-main">
+        <div class="row ${done?"is-done":""}">
+          <input type="checkbox" id="b-${b.id}" data-block="${b.id}" ${done?"checked":""}>
+          <label for="b-${b.id}"><div class="title">${esc(b.title)}</div><div class="desc">${esc(b.desc)}</div></label>
+          ${b.id===cur?'<span class="pill">Ahora</span>':""}
+        </div>
+        ${todayList.length?`<div class="linked">${todayList.map(t=>taskRow(t,true)).join("")}</div>`:""}
+      </div>
+    </div>`;
+  }).join("");
+
+  const todayTasks = state.tasks.filter(t=>t.today);
+  const total = blocks.length + todayTasks.length;
+  const doneN = blocks.filter(b=>state.routine.done.includes(b.id)).length + todayTasks.filter(t=>t.done).length;
+  $("count").textContent = `${doneN} de ${total} hechas hoy`;
+  $("bar").style.width = total ? (doneN/total*100)+"%" : "0";
+
+  $("chips").innerHTML = [["todas","Todas"],...Object.entries(CATS).map(([k,v])=>[k,v.name])].map(([k,n])=>{
+    const c = k==="todas" ? pending.length : pending.filter(t=>t.cat===k).length;
+    return `<button type="button" class="chip" data-filter="${k}" aria-pressed="${filter===k}">${esc(n)} · ${c}</button>`;
+  }).join("");
+
+  const shown = state.tasks.filter(t=>filter==="todas"||t.cat===filter);
+  const groups = [
+    ["Para hoy", shown.filter(t=>!t.done && t.today)],
+    ["Más adelante", shown.filter(t=>!t.done && !t.today)],
+    ["Hechas", shown.filter(t=>t.done)]
+  ];
+  const html = groups.filter(g=>g[1].length).map(([label,list])=>
+    `<div class="group-label">${label} · ${list.length}</div>` + list.sort((a,z)=>a.created-z.created).map(t=>{
+      const c = CATS[t.cat];
+      return `<div class="task ${t.done?"is-done":""}">
+        <input type="checkbox" id="p-${esc(t.id)}" data-task="${esc(t.id)}" ${t.done?"checked":""}>
+        <div class="body">
+          <label for="p-${esc(t.id)}" class="ttext">${esc(t.text)}</label>
+          <div class="meta"><span class="cat" style="--cc:${c.color}">${esc(c.name)}</span>${t.today&&!t.done?'<span class="today-tag">Para hoy</span>':""}</div>
+        </div>
+        ${t.done?"":`<button type="button" class="icon" data-today="${esc(t.id)}">${t.today?"Quitar de hoy":"Para hoy"}</button>`}
+        <button type="button" class="icon" data-del="${esc(t.id)}" aria-label="Borrar tarea: ${esc(t.text)}">Borrar</button>
+      </div>`;
+    }).join("")
+  ).join("");
+  $("tasks").innerHTML = html || `<div class="empty">${filter==="todas"?"No tenés pendientes. Agregá uno arriba.":"No hay pendientes en esta área."}</div>`;
+  $("pend-count").textContent = `${pending.length} sin hacer`;
+  $("clear-done").hidden = !state.tasks.some(t=>t.done);
+}
+
+// ---------- events ----------
+$("new-cat").innerHTML = Object.entries(CATS).map(([k,v])=>`<option value="${k}">${esc(v.name)}</option>`).join("");
+$("add").addEventListener("submit", e=>{
+  e.preventDefault(); if(!state) return;
+  const text = $("new-text").value.trim(); if(!text) return;
+  const today = $("new-today").checked;
+  state.tasks.push({id:uid(), text, cat:$("new-cat").value, today, todayDate: today?todayKey():"", done:false, doneAt:"", created:Date.now()});
+  $("new-text").value = ""; $("new-today").checked = false;
+  change(); $("new-text").focus();
+});
+document.addEventListener("change", e=>{
+  const el = e.target; if(!state) return;
+  if(el.dataset.block){
+    const d = state.routine.done, i = d.indexOf(el.dataset.block);
+    if(el.checked && i<0) d.push(el.dataset.block); if(!el.checked && i>=0) d.splice(i,1);
+    change();
+  } else if(el.dataset.task){
+    const t = state.tasks.find(x=>x.id===el.dataset.task); if(!t) return;
+    t.done = el.checked; t.doneAt = el.checked ? todayKey() : ""; change();
+  }
+});
+document.addEventListener("click", e=>{
+  const el = e.target.closest("button"); if(!el || !state) return;
+  if(el.dataset.filter){ filter = el.dataset.filter; render(); }
+  else if(el.dataset.today){ const t=state.tasks.find(x=>x.id===el.dataset.today); if(t){ t.today=!t.today; t.todayDate=t.today?todayKey():""; change(); } }
+  else if(el.dataset.del){ state.tasks = state.tasks.filter(x=>x.id!==el.dataset.del); change(); }
+  else if(el.id==="clear-done"){ state.tasks = state.tasks.filter(x=>!x.done); change(); }
+});
+// Refresh "Ahora" and the new-day reset while the page stays open.
+setInterval(()=>{
+  if(!state) return;
+  if(state.routine.date !== todayKey()){ state = normalize(state); change(); } else render();
+}, 60000);
+
+// ---------- load ----------
+function loadLocal(note){
+  useLocal = true;
+  let s = null; try{ s = JSON.parse(localStorage.getItem(LKEY)||"null"); }catch(e){}
+  state = normalize(s); render();
+  setSaveText(note || "Guardado en este dispositivo");
+}
+async function init(){
+  let db = null, user = null;
+  for(let i=0; i<30 && !window.claude; i++) await new Promise(r=>setTimeout(r,100));
+  try{ [db, user] = await Promise.all([window.claude ? window.claude.use("db") : null, window.claude ? window.claude.use("user") : null]); }catch(e){}
+  const id = user ? await user.id().catch(()=>null) : null;
+  if(!db || !id){ loadLocal("Guardado solo en este dispositivo"); return; }
+  ref = db.collection("data/users/"+id).doc("mi-dia");
+  let settled = false;
+  const timer = setTimeout(()=>{ if(!settled){ settled = true; loadLocal("Sin conexión con tu cuenta: guardando en este dispositivo"); } }, 10000);
+  try{
+    const snap = await ref.get();
+    if(settled) return; settled = true; clearTimeout(timer);
+    const fresh = !snap.exists;
+    state = normalize(snap.exists ? snap.data() : null);
+    render(); setSaveText("Guardado en tu cuenta");
+    if(fresh) save();
+  }catch(e){ if(!settled){ settled = true; clearTimeout(timer); loadLocal("Guardado solo en este dispositivo"); } }
+}
+// Show the page right away with the routine, then load saved data.
+state = normalize(null); render(); setSaveText("Cargando tus tareas…");
+const startState = state;
+init().then(()=>{}, ()=>{ if(state===startState) loadLocal(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Mi día - hoja imprimible</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:12mm}
+*{box-sizing:border-box} body{margin:0;font:10.5pt/1.3 Figtree,sans-serif;color:#111}
+.page{height:272mm;display:flex;flex-direction:column;gap:5mm;page-break-after:always}
+.page:last-child{page-break-after:auto}
+header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #111;padding-bottom:2mm}
+h1{font:700 24pt "Bricolage Grotesque",sans-serif;margin:0}
+h2{font:700 13pt "Bricolage Grotesque",sans-serif;margin:0 0 2mm}
+h3{font:600 10pt Figtree;margin:0 0 1mm;text-transform:uppercase;letter-spacing:.04em}
+.field{font-size:10pt} .field span{display:inline-block;border-bottom:1px solid #111;width:45mm;margin-left:2mm}
+.days{display:flex;gap:2mm;font-weight:600;font-size:9pt} .days span{border:1px solid #111;border-radius:50%;width:6.5mm;height:6.5mm;display:grid;place-items:center}
+ul{list-style:none;margin:0;padding:0}
+.b{display:inline-block;width:4.2mm;height:4.2mm;border:1.3px solid #111;border-radius:1mm;flex:none}
+.prio li{display:flex;align-items:center;gap:3mm;height:10mm;border-bottom:1px solid #999}
+.prio .n{font:700 14pt "Bricolage Grotesque";width:6mm}
+.grid{display:grid;grid-template-columns:72mm 1fr;gap:6mm;flex:1}
+.rut li{display:flex;align-items:center;gap:2.5mm;height:8.4mm;border-bottom:1px solid #ccc}
+.rut .t{font-weight:600;width:11mm;font-variant-numeric:tabular-nums}
+.todo li{display:flex;align-items:flex-end;gap:2.5mm;height:7.6mm}
+.todo .l{flex:1;border-bottom:1px solid #999;height:1px}
+.box{border:1.3px solid #111;border-radius:2mm;padding:3mm}
+.notes{flex:1;background-image:repeating-linear-gradient(#fff 0 7mm,#bbb 7mm 7.25mm)}
+.foot{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.foot .box{height:26mm}
+.small{font-size:8.5pt;color:#444}
+.areas{display:grid;grid-template-columns:1fr 1fr;gap:5mm 8mm}
+.q li{margin-bottom:1mm} .q li .l{display:block;border-bottom:1px solid #999;height:7mm}
+</style></head><body>
+<section class="page">
+ <header><h1>Mi día</h1><div><div class="field">Fecha<span></span></div><div class="days" style="margin-top:2mm"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div></div></header>
+ <div><h2>Mis 3 prioridades de hoy</h2><ul class="prio"><li><span class="b"></span><span class="n">1</span></li><li><span class="b"></span><span class="n">2</span></li><li><span class="b"></span><span class="n">3</span></li></ul></div>
+ <div class="grid">
+  <div><h2>Rutina</h2><ul class="rut"><li><span class="t">07:30</span><span class="b"></span>Planificar el día</li><li><span class="t">08:30</span><span class="b"></span>Pedidos y WhatsApp</li><li><span class="t">10:00</span><span class="b"></span>Productos, catálogo y 3D</li><li><span class="t">12:30</span><span class="b"></span>Almuerzo y descanso</li><li><span class="t">14:00</span><span class="b"></span>Redes: publicar contenido</li><li><span class="t">16:00</span><span class="b"></span>Pedidos y envíos</li><li><span class="t">17:00</span><span class="b"></span>Revisar Meta Ads</li><li><span class="t">18:30</span><span class="b"></span>Tiempo personal</li><li><span class="t">21:00</span><span class="b"></span>Cierre del día</li></ul><p class="small">Tachá los bloques que no tocan hoy (domingo: sin pedidos, productos ni anuncios).</p></div>
+  <div><h2>Para hacer</h2><ul class="todo"><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li></ul></div>
+ </div>
+ <div class="foot"><div class="box"><h3>Pedidos de hoy</h3></div><div class="box"><h3>Pasa a mañana</h3></div></div>
+ <div class="box" style="height:20mm"><h3>Lo que logré hoy</h3></div>
+</section>
+<section class="page">
+ <header><h1>Mi semana</h1><div class="field">Semana del<span></span></div></header>
+ <div class="areas"><div class="area"><h3>Pedidos y WhatsApp</h3><ul class="todo"><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li></ul></div><div class="area"><h3>Redes</h3><ul class="todo"><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li></ul></div><div class="area"><h3>Productos y 3D</h3><ul class="todo"><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li></ul></div><div class="area"><h3>Meta Ads</h3><ul class="todo"><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li></ul></div><div class="area"><h3>Personal</h3><ul class="todo"><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li></ul></div><div class="area"><h3>Otros</h3><ul class="todo"><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li><li><span class="b"></span><span class="l"></span></li></ul></div></div>
+ <div class="grid" style="grid-template-columns:1fr 1fr">
+  <div class="box"><h3>Planificación del domingo</h3><ul class="q small">
+   <li>¿Cuánto vendí esta semana?<span class="l"></span></li>
+   <li>¿Qué producto se movió más?<span class="l"></span></li>
+   <li>¿Qué tengo que reponer o imprimir?<span class="l"></span></li>
+   <li>¿Qué voy a publicar esta semana?<span class="l"></span></li>
+   <li>Una cosa personal que no quiero dejar pasar<span class="l"></span></li></ul></div>
+  <div class="box notes"><h3 style="background:#fff;display:inline-block;padding-right:2mm">Notas</h3></div>
+ </div>
+</section></body></html>
