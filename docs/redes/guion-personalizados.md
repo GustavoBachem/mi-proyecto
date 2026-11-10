@@ -83,22 +83,22 @@
 - **Duración:** 20 a 30 segundos.
 
 **Ganchos:**
-1. ⭐ **"Había dejado de hacer cases personalizados. Volví, pero de otra manera."** Deja con
-   la duda de qué cambió.
-2. "Muchos me preguntaban por los personalizados. Volvieron." ❓ *Usalo solo si de verdad te preguntaban.*
+1. ⭐ **"Se me rompió la máquina y no la pude arreglar. Así que dejé de hacer cases personalizados."**
+   Es un problema real y la pregunta queda abierta: ¿y ahora qué?
+2. "Había dejado de hacer cases personalizados. Volví, pero de otra manera." Más suave, sin contar el problema de entrada.
 
 | Tiempo | Toma | Texto en pantalla | Lo que decís |
 |---|---|---|---|
-| 0–3s | Vos a cámara, con un case en la mano | **Volvieron 🔥** | "Había dejado de hacer cases personalizados. Volví, pero de otra manera." |
-| 3–10s | Recorte del proceso (calor, papel) | **Antes UV DTF → ahora sublimación** | "Antes los hacía con UV DTF. Ahora los hago con sublimación, porque ❓ [tu motivo real]." |
-| 10–18s | Recorte del revelado | **Tu idea → tu case** | "Me mandás por WhatsApp tu diseño, una idea o una temática, y te lo hago." |
-| 18–25s | Vos con 3 cases en la mano | **95.000 Gs · iPhone 11 al 17 Pro Max · Samsung y Xiaomi** | "Noventa y cinco mil. Del iPhone 11 al 17 Pro Max, y también algunos Samsung y Xiaomi." |
-| 25–28s | Vos señalando abajo | **WhatsApp en el perfil** | "Escribime y lo armamos." |
+| 0–3s | Vos a cámara, serio, con un case en la mano | **Se me rompió la máquina** | "Se me rompió la máquina y no la pude arreglar. Así que dejé de hacer cases personalizados." |
+| 3–9s | Vos a cámara | **Antes: UV DTF ❌** | "Los hacía con UV DTF. Intenté repararla y no hubo caso." |
+| 9–15s | Recorte del proceso (calor, papel) | **Ahora: sublimación ✅** | "Pero no quería dejar de hacerlos, así que cambié de técnica. Ahora los hago con sublimación." |
+| 15–20s | **Recorte del revelado** (sacás el papel) | **Volvieron 🔥** | "Y volvieron." |
+| 20–27s | Vos con 3 cases en la mano | **95.000 Gs · iPhone 11 al 17 Pro Max · Samsung y Xiaomi** | "Me mandás tu diseño, tu idea o una temática por WhatsApp. Noventa y cinco mil, del iPhone 11 al 17 Pro Max, y algunos Samsung y Xiaomi." |
+| 27–30s | Vos señalando abajo | **WhatsApp en el perfil** | "Escribime y lo armamos." |
 
-- **Caption:** `Volvieron los personalizados, ahora con sublimación 🔥 Mandame tu idea por WhatsApp. 95.000 Gs.`
-
-❓ **Me falta un dato para el video C:** ¿por qué cambiaste de UV DTF a sublimación? Por ejemplo:
-dura más, queda mejor el color o no se despega. Tiene que ser el motivo real.
+- **Caption:** `Se me rompió la máquina de UV DTF y no la pude arreglar 😅 Cambié a sublimación y volvieron los cases personalizados 🔥 Mandame tu idea por WhatsApp. 95.000 Gs.`
+- **Ojo:** no hables mal de la máquina ni de quien intentó repararla, ni digas que la sublimación es
+  "mejor" en algo que no probaste. Contalo tal cual: se rompió, cambié y volví.
 
 ---
 
