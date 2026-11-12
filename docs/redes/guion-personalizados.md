@@ -23,7 +23,7 @@
 |---|---|---|
 | 0–10 | Armado: celular en trípode, vertical, con luz de frente. Cases terminados ordenados en la mesa | — |
 | 10–30 | **El proceso completo de 1 case:** diseño en la pantalla → papel impreso → lo colocás → calor → **sacás el papel (grabalo 2 o 3 veces)** | Video A |
-| 30–40 | Planos de todos los cases terminados: en la mano, girándolos, uno al lado del otro | Video B (y de relleno para el A) |
+| 30–40 | Planos de todos los cases terminados: en la mano, girándolos, uno al lado del otro. **Uno envuelto o con un moño** | Videos B y C (y de relleno para el A) |
 | 40–55 | Vos a cámara: decís los textos del video C. Hacé 2 o 3 tomas de cada frase | Video C |
 | 55–60 | Una captura de pantalla de un pedido por WhatsApp **inventado** ("Quiero uno de Messi", "uno con mi perro"), sin número ni nombre | Videos B y C |
 
@@ -77,30 +77,30 @@
 
 ---
 
-## Video C — "Volví a hacer personalizados" (Gus a cámara) · el lado fundador
-- **Dónde:** @gusbachem en TikTok e Instagram, en Collab con @mycase_storepy.
-- **Formato:** a cámara, con recortes del proceso grabados en el video A.
-- **Duración:** 20 a 30 segundos.
+## Video C — "¿No sabés qué regalar?" (Navidad) · venta por temporada
+- **Dónde:** TikTok @mycasestorepy, Instagram @mycase_storepy y @gusbachem en Collab.
+- **Cuándo:** 2 o 3 días después del video A. Sirve hasta el 24 de diciembre y también como anuncio en Meta.
+- **Formato:** cases en primer plano, con tu voz en off o hablando a cámara.
+- **Duración:** unos 20 segundos.
 
 **Ganchos:**
-1. ⭐ **"Se me rompió la máquina y no la pude arreglar. Así que dejé de hacer cases personalizados."**
-   Es un problema real y la pregunta queda abierta: ¿y ahora qué?
-2. "Había dejado de hacer cases personalizados. Volví, pero de otra manera." Más suave, sin contar el problema de entrada.
+1. ⭐ **"¿No sabés qué regalar esta Navidad?"** con un case personalizado en la mano. Le habla a todos los que buscan regalo.
+2. "Un regalo que no vas a encontrar en ninguna tienda." Marca lo único que es el producto.
 
 | Tiempo | Toma | Texto en pantalla | Lo que decís |
 |---|---|---|---|
-| 0–3s | Vos a cámara, serio, con un case en la mano | **Se me rompió la máquina** | "Se me rompió la máquina y no la pude arreglar. Así que dejé de hacer cases personalizados." |
-| 3–9s | Vos a cámara | **Antes: UV DTF ❌** | "Los hacía con UV DTF. Intenté repararla y no hubo caso." |
-| 9–15s | Recorte del proceso (calor, papel) | **Ahora: sublimación ✅** | "Pero no quería dejar de hacerlos, así que cambié de técnica. Ahora los hago con sublimación." |
-| 15–20s | **Recorte del revelado** (sacás el papel) | **Volvieron 🔥** | "Y volvieron." |
-| 20–27s | Vos con 3 cases en la mano | **95.000 Gs · iPhone 11 al 17 Pro Max · Samsung y Xiaomi** | "Me mandás tu diseño, tu idea o una temática por WhatsApp. Noventa y cinco mil, del iPhone 11 al 17 Pro Max, y algunos Samsung y Xiaomi." |
-| 27–30s | Vos señalando abajo | **WhatsApp en el perfil** | "Escribime y lo armamos." |
+| 0–3s | Case personalizado en la mano, de cerca | **¿No sabés qué regalar? 🎁** | "¿No sabés qué regalar esta Navidad?" |
+| 3–8s | 3 o 4 cases con temáticas distintas: una mascota, un equipo, un dibujo | **Algo que solo esa persona entiende** | "Un case con algo que solo esa persona entiende." |
+| 8–13s | El momento de sacar el papel | **Tu idea → su case** | "Me mandás la idea por WhatsApp y te lo hago." |
+| 13–18s | Case envuelto o al lado de un moño | **95.000 Gs · iPhone 11 al 17 Pro Max · Samsung y Xiaomi** | "Noventa y cinco mil, para iPhone, Samsung y Xiaomi." |
+| 18–20s | — | **Pedilo con tiempo 🎄** | "Pedilo con tiempo, que diciembre se llena." |
 
-- **Caption:** `Se me rompió la máquina de UV DTF y no la pude arreglar 😅 Cambié a sublimación y volvieron los cases personalizados 🔥 Mandame tu idea por WhatsApp. 95.000 Gs.`
-- **Ojo:** no hables mal de la máquina ni de quien intentó repararla, ni digas que la sublimación es
-  "mejor" en algo que no probaste. Contalo tal cual: se rompió, cambié y volví.
+- **Caption:** `¿No sabés qué regalar? 🎁 Un case personalizado con su mascota, su equipo o esa idea que solo ustedes entienden. Me mandás la idea por WhatsApp y te lo hago. 95.000 Gs. Envíos a todo Paraguay.`
+- **Hashtags:** #regalonavidad #casepersonalizado #regalo #iphone #paraguay
 
----
+### Guardado para más adelante: la historia de la máquina (@gusbachem)
+"Se me rompió la máquina de UV DTF, no la pude arreglar y cambié a sublimación." Sirve para contenido
+personal y para sumar seguidores, no para vender directo. Se usa cuando haya material de los primeros videos.
 
 ## Usarlo como anuncio
 El video A sirve también como anuncio en Meta, porque ya tenés campañas andando. Conviene tomar el
