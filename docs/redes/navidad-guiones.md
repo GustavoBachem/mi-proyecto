@@ -36,15 +36,16 @@ producto y ya tenés un video nuevo.
 | **Lun 16 nov** | A · "Volvieron los personalizados" | Revelado | @mycasestorepy |
 | **Jue 19 nov** | C · "¿No sabés qué regalar?" | Regalo para… | @mycasestorepy |
 | **Lun 23 nov** | 1 · 4 regalos por menos de 100 mil | Lista | @mycasestorepy + @jazzlab3d |
-| **Vie 27 nov** | 2 · Black Friday ❓ (solo si hay promo real) — si no, el **B · "¿Cuál te harías?"** | — | @mycasestorepy |
+| **Vie 27 nov** | B · "¿Cuál te harías?" (sin promo de Black Friday por ahora) | ¿Qué es esto? / comentarios | @mycasestorepy |
 | **Lun 30 nov** | 3 · Regalo para el motoquero | Regalo para… | @jazzlab3d |
 | **Jue 3 dic** | 4 · Del WhatsApp al case #1 | Del WhatsApp al case | @mycasestorepy |
 | **Lun 7 dic** | 5 · ¿Qué es esto? | ¿Qué es esto? | @mycasestorepy |
 | **Jue 10 dic** | 6 · Regalo para tu pareja | Regalo para… | @mycasestorepy |
 | **Lun 14 dic** | 7 · Así se va la semana antes de Navidad | Detrás de escena | @gusbachem |
 | **Mié 16 dic** | 8 · Regalo para el que tiene todo | Regalo para… | @jazzlab3d |
-| **Vie 18 dic** | 9 · Último día para pedir ❓ (con tu fecha real) | Aviso | todas |
+| **Vie 18 dic** | 9a · "Pedí tu personalizado hasta el 22" | Aviso | todas |
 | **Lun 21 dic** | Volvé a publicar el video que mejor anduvo, con otro gancho | — | — |
+| **Mar 22 dic** | 9b · "Hoy es el último día" (video corto + Stories durante el día) | Aviso | todas |
 
 ---
 
@@ -63,9 +64,9 @@ producto y ya tenés un video nuevo.
 - **Caption:** `4 regalos de Navidad por menos de 100 mil 🎁 ¿Cuál regalás: 1, 2, 3 o 4? Pedilos por WhatsApp, con envíos a todo Paraguay.`
 - **Hashtags:** #regalosnavidad #regalos #paraguay #impresion3d #casepersonalizado
 
-## 2 · Black Friday ❓
-**Solo si hacés una promo real** (por ejemplo, un descuento o un regalo con la compra). Nada de descuentos inventados ni "últimas
-unidades" si no es verdad. Decime cuál es la promo y te escribo el guion.
+## 2 · Black Friday — por ahora no
+No hay promo definida, así que ese día va el video B. Si más adelante decidís hacer una (un descuento
+o un regalo con la compra), se arma el guion. Nada de descuentos inventados.
 
 ## 3 · "Regalo para el motoquero"
 **Gancho:** **"Si tiene moto, este es el regalo."** El casco colgado en la pared.
@@ -142,10 +143,14 @@ unidades" si no es verdad. Decime cuál es la promo y te escribo el guion.
 | 8–12s | El porta incienso desde varios ángulos | **Porta incienso impreso en 3D** |
 | 12–15s | — | **65.000 Gs · @jazzlab3d · WhatsApp** |
 
-## 9 · "Último día para pedir" ❓
-**Gancho:** **"Último día para pedir tu case personalizado para Navidad."**
-Necesito tu **fecha límite real** para pedidos que lleguen antes del 24 (no hace falta decir cuánto tardás).
-Ese día, el video y una Story con cuenta regresiva.
+## 9 · "Pedí hasta el 22" (dos videos cortos)
+**Fecha límite real: 22 de diciembre.** No se dice cuánto tardás, solo hasta cuándo se puede pedir.
+
+**9a · Vie 18 dic.** Gancho: **"Si querés regalar un case personalizado esta Navidad, tenés hasta el martes 22."**
+Los cases terminados → revelado → texto **"Pedidos hasta el 22/12 · 95.000 Gs · WhatsApp"**.
+
+**9b · Mar 22 dic.** Gancho: **"Hoy es el último día para pedir tu case personalizado para Navidad."**
+Vos a cámara, 10 segundos, con un case en la mano. Durante el día, Stories con el sticker de cuenta regresiva y el enlace a WhatsApp.
 
 ---
 
